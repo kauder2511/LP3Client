@@ -32,7 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Historia.findAll", query = "SELECT h FROM Historia h"),
     @NamedQuery(name = "Historia.findByIdHistoria", query = "SELECT h FROM Historia h WHERE h.idHistoria = :idHistoria"),
     @NamedQuery(name = "Historia.findByHistoria", query = "SELECT h FROM Historia h WHERE h.historia = :historia"),
-    @NamedQuery(name = "Historia.findByRoteiro", query = "SELECT h FROM Historia h WHERE h.roteiro = :roteiro")})
+    @NamedQuery(name = "Historia.findByRoteiro", query = "SELECT h FROM Historia h WHERE h.roteiro = :roteiro"),
+    @NamedQuery(name = "Historia.findByIdheroi", query = "SELECT h FROM Historia h WHERE h.idheroi :idheroi")
+})
 public class Historia implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

@@ -32,7 +32,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Histsugestao.findAll", query = "SELECT h FROM Histsugestao h"),
     @NamedQuery(name = "Histsugestao.findByIdSugestao", query = "SELECT h FROM Histsugestao h WHERE h.idSugestao = :idSugestao"),
     @NamedQuery(name = "Histsugestao.findByHistoria", query = "SELECT h FROM Histsugestao h WHERE h.historia = :historia"),
-    @NamedQuery(name = "Histsugestao.findByRoteiro", query = "SELECT h FROM Histsugestao h WHERE h.roteiro = :roteiro")})
+    @NamedQuery(name = "Histsugestao.findByRoteiro", query = "SELECT h FROM Histsugestao h WHERE h.roteiro = :roteiro"),
+    @NamedQuery(name = "Histsugestao.findByIdheroi", query = "SELECT h FROM Histsugestao h WHERE h.idheroi = :idheroi")})
 public class Histsugestao implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
