@@ -5,15 +5,16 @@
  */
 package com.br.lp3.sessionbeans;
 
+import com.br.lp3.entities.Usuario;
 import javax.ejb.Local;
 
 /**
  *
- * @author william
+ * @author Raquel
  */
 @Local
-public interface UsuarioSBLocal {
+public interface DAOManagerLocal {
     
-    public boolean verificaLogin();
+    public boolean verificaLogin(String nome,String senha);
     
 }
