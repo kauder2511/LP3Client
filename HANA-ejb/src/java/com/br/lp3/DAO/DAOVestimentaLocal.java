@@ -6,6 +6,7 @@
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Vestimenta;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -21,7 +22,7 @@ public interface DAOVestimentaLocal {
 
     void update(Vestimenta vestimenta);
 
-    void delete(Vestimenta vestimenta);
+    void delete(int id_vestimenta);
     
     
 }

@@ -61,11 +61,11 @@ public class DAOVestimenta implements DAOVestimentaLocal {
     }
 
     @Override
-    public void delete(Vestimenta vestimenta) {
+    public void delete(int id_vestimenta) {
         try {
             Registry registro = LocateRegistry.getRegistry("localhost",1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Vestimenta");
-            servico.delete(vestimenta);
+            servico.delete(id_vestimenta);
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOVestimenta.class.getName()).log(Level.SEVERE, null, ex);
         }
