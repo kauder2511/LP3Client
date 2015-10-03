@@ -5,24 +5,21 @@
  */
 package com.br.lp3.DAO;
 
-import com.br.lp3.entities.Usuario;
+import com.br.lp3.entities.Historia;
 import java.util.List;
 import javax.ejb.Local;
 
 /**
  *
- * @author Raquel
+ * @author william
  */
 @Local
-public interface DAOManagerLocal {
+public interface DAOHistoriaLocal {
+
+    void inserir(Historia h);
+
+    List<Historia> readList();
+
+    void update(Historia historia);
     
-    public boolean verificaLogin(Usuario u);
-
-    void inserir(Usuario u);
-    
-    public List<Usuario> readList() ;
-
-    void update(Usuario u);
-
-    void delete(int id);
 }
