@@ -30,6 +30,7 @@ public class LoginController extends HttpServlet {
     
     @EJB
     private DAOManagerLocal dAOUser;
+    
 
     
     
@@ -50,7 +51,11 @@ public class LoginController extends HttpServlet {
             
            String login = request.getAttribute("usuario").toString();
            String senha = request.getAttribute("senha").toString();
-           boolean resp = dAOUser.verificaLogin(login,senha);
+           Usuario user = new Usuario();
+           user.setLogin(login);
+           user.setSenha(senha);
+           boolean resp = dAOUser.verificaLogin(user);
+           Usuario u;
             if (resp){
                 String nome = "ok";
                 String raquel = "ela é foda";
