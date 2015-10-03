@@ -23,24 +23,47 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Raquel
+ * @author william
  */
-
+@Entity
+@Table(name = "USUARIO")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
+    @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario"),
+    @NamedQuery(name = "Usuario.findByNomeUsuario", query = "SELECT u FROM Usuario u WHERE u.nomeUsuario = :nomeUsuario"),
+    @NamedQuery(name = "Usuario.findByLogin", query = "SELECT u FROM Usuario u WHERE u.login = :login"),
+    @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha"),
+    @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email"),
+    @NamedQuery(name = "Usuario.findByTipoUsuario", query = "SELECT u FROM Usuario u WHERE u.tipoUsuario = :tipoUsuario")})
 public class Usuario implements Serializable {
-    
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "ID_USUARIO")
     private Integer idUsuario;
-    
+    @Basic(optional = false)
+    @Column(name = "NOME_USUARIO")
     private String nomeUsuario;
-    
+    @Basic(optional = false)
+    @Column(name = "LOGIN")
     private String login;
-    
+    @Basic(optional = false)
+    @Column(name = "SENHA")
     private String senha;
-    
+    @Basic(optional = false)
+    @Column(name = "EMAIL")
     private String email;
-    
+    @Basic(optional = false)
+    @Column(name = "TIPO_USUARIO")
     private int tipoUsuario;
-    
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+    private Collection<Histsugestao> histsugestaoCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsermarvel")
+    private Collection<Heroimarvel> heroimarvelCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
+    private Collection<Heroi> heroiCollection;
 
     public Usuario() {
     }
@@ -106,8 +129,32 @@ public class Usuario implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
 
-   
+    @XmlTransient
+    public Collection<Histsugestao> getHistsugestaoCollection() {
+        return histsugestaoCollection;
+    }
 
+    public void setHistsugestaoCollection(Collection<Histsugestao> histsugestaoCollection) {
+        this.histsugestaoCollection = histsugestaoCollection;
+    }
+
+    @XmlTransient
+    public Collection<Heroimarvel> getHeroimarvelCollection() {
+        return heroimarvelCollection;
+    }
+
+    public void setHeroimarvelCollection(Collection<Heroimarvel> heroimarvelCollection) {
+        this.heroimarvelCollection = heroimarvelCollection;
+    }
+
+    @XmlTransient
+    public Collection<Heroi> getHeroiCollection() {
+        return heroiCollection;
+    }
+
+    public void setHeroiCollection(Collection<Heroi> heroiCollection) {
+        this.heroiCollection = heroiCollection;
+    }
 
     @Override
     public int hashCode() {

@@ -5,8 +5,9 @@
  */
 package com.br.lp3.controller;
 
+import com.br.lp3.DAO.DAOManagerLocal;
 import com.br.lp3.entities.Usuario;
-import com.br.lp3.sessionbeans.DAOUser;
+import com.br.lp3.DAO.DAOUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.rmi.NotBoundException;
@@ -26,9 +27,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author Raquel
  */
 public class LoginController extends HttpServlet {
-
+    
     @EJB
-    DAOUser daouser;
+    private DAOManagerLocal dAOUser;
+
+    
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,18 +45,22 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+
             /* TODO output your page here. You may use following sample code. */
             
            String login = request.getAttribute("usuario").toString();
            String senha = request.getAttribute("senha").toString();
-            if (daouser.verificaLogin(login,senha)){
-                  out.print("logado");
-                
+           boolean resp = dAOUser.verificaLogin(login,senha);
+            if (resp){
+                String nome = "ok";
+                String raquel = "ela é foda";
+                String will = "ela é foda mesmo diz ele";
             }else{
-                out.print("erro de login");
+                String nome = "ok";
+                String raquel = "ela é foda";
+                String will = "ela é foda mesmo diz ele";
             }
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

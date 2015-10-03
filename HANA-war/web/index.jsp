@@ -28,7 +28,7 @@
         </div>
         <section class="stark-login">
 
-            <form action="Controller" method="POST">
+            <form action="FrontController" method="POST">
                 <div id="fade-box">
                     <input type="text" name="username" id="username" placeholder="Usuário" required>
                     <input type="password" name="password" placeholder="Senha" required>

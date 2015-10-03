@@ -4,3 +4,6 @@
 /HANA-ejb/build/
 /build/
 /HANA-war/dist/
+/HANA-ejb/dist/
+/HANA-war/build/
+/dist/

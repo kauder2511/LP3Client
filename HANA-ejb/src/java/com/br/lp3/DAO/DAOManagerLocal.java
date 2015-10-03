@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.br.lp3.sessionbeans;
+package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Usuario;
 import javax.ejb.Local;
