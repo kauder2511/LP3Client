@@ -46,7 +46,7 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
            String login = request.getAttribute("usuario").toString();
@@ -57,15 +57,12 @@ public class LoginController extends HttpServlet {
            boolean resp = dAOUser.verificaLogin(user);
            Usuario u;
             if (resp){
-                String nome = "ok";
-                String raquel = "ela é foda";
-                String will = "ela é foda mesmo diz ele";
+                out.println("Usuario Logado");
             }else{
-                String nome = "ok";
-                String raquel = "ela é foda";
-                String will = "ela é foda mesmo diz ele";
+                out.println("Usuario inválido");
             }
         
+    }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
