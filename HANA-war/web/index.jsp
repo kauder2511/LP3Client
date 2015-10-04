@@ -10,17 +10,7 @@
 <html>
     <head>
         <title>HANA - Heroes of a New Age</title>
-        <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-        <!-- jQuery (necessary JavaScript plugins) -->
-        <script src="js/bootstrap.js"></script>
-        <script src="js/jquery.min.js"></script>
-        <!-- Custom Theme files -->
-        <link href="css/login.css" rel='stylesheet' type='text/css' />
-        <!-- Custom Theme files -->
-        <!--//theme-style-->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
+        <link href="css/login.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div id="logo">
@@ -110,5 +100,14 @@
                 <h2> </h2>
             </div>
         </div>
+
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </body>
 </html>
