@@ -5,7 +5,7 @@
  */
 package com.br.lp3.DAO;
 
-import com.br.lp3.entities.Historia;
+import com.br.lp3.entities.Histsugestao;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,14 +14,14 @@ import javax.ejb.Local;
  * @author william
  */
 @Local
-public interface DAOHistoriaLocal {
+public interface DAOHistSugestaoLocal {
 
-    void inserir(Historia h);
+    void inserir(Histsugestao histSugestao);
 
-    List<Historia> readList();
+    List<Histsugestao> read();
 
-    void update(Historia historia);
+    void update(Histsugestao histSugestao);
 
-    void delete(int id);
+    void delete(int id_histSugestao);
     
 }

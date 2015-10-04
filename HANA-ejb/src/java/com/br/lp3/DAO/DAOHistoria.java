@@ -61,6 +61,20 @@ public class DAOHistoria implements DAOHistoriaLocal {
             Logger.getLogger(DAOHistoria.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public void delete(int id) {
+        try {
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
+            GenericDAO servico = (GenericDAO) registro.lookup("Historia");
+            servico.delete(id);
+            
+        } catch (RemoteException | NotBoundException ex) {
+            Logger.getLogger(DAOHistoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
     
 
     
