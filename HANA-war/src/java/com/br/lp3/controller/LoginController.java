@@ -57,9 +57,9 @@ public class LoginController extends HttpServlet {
            boolean resp = dAOUser.verificaLogin(user);
            Usuario u;
             if (resp){
-                out.println("Usuario Logado");
+                out.println("Usuário Logado");
             }else{
-                out.println("Usuario inválido");
+                out.println("Usuário inválido");
             }
         
     }

@@ -24,6 +24,7 @@ Stark Industries Logo
   margin: 0 auto;
   position: relative;
   z-index: 40;
+  background-image: url("logoHANA.png");
 }
 
 h1 {
