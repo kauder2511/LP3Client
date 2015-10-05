@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Page style with bootstrap -->
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-        <link href="css/style.css" rel='stylesheet' type='text/css' />
+        <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
         <!-- Javascript with bootstrap and jQuery -->
         <script src="js/bootstrap.js"></script>
         <script src="js/jquery.min.js"></script>
