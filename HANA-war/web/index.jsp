@@ -11,6 +11,7 @@
     <head>
         <title>HANA - Heroes of a New Age</title>
         <link href="css/login.css" rel="stylesheet" type="text/css"/>
+        
     </head>
     <body>
         <div id="logo">
@@ -25,7 +26,7 @@
 
                     <input type="submit" value="Entrar" name="login"/>
                     <input type="hidden" name="command" value="login"/>
-                    <span class="registro">Caso não tenha uma conta <a href="registrar.html">Clique Aqui</a></span>
+                    <span class="registro">Caso não tenha uma conta <a href="TelaCadastro.jsp">Clique Aqui</a></span>
                 </div>
             </form>
             <div class="hexagons">

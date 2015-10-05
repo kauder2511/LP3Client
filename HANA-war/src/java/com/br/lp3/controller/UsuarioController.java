@@ -5,9 +5,11 @@
  */
 package com.br.lp3.controller;
 
+import com.br.lp3.DAO.DAOManagerLocal;
+import com.br.lp3.entities.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,10 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Raquel
+ * @author william
  */
-public class FrontController extends HttpServlet {
+public class UsuarioController extends HttpServlet {
+    @EJB
+    private DAOManagerLocal dAOUser;
 
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -28,37 +33,23 @@ public class FrontController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    String command;
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-            
-            RequestDispatcher rd;
-            
-            if(command.equalsIgnoreCase("login")){
-                rd = request.getRequestDispatcher("/LoginController");
-                request.setAttribute("usuario", request.getParameter("username"));
-                request.setAttribute("senha", request.getParameter("password"));
-                rd.forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            String tipo = request.getAttribute("tipo").toString();
+            if(tipo.equalsIgnoreCase("inserir")){
+                Usuario u = new Usuario();
+                u.setNomeUsuario(request.getAttribute("nome").toString());
+                u.setLogin(request.getAttribute("usuario").toString());
+                u.setSenha(request.getAttribute("senha").toString());
+                u.setEmail(request.getAttribute("email").toString());
+                u.setTipoUsuario(0);
+                dAOUser.inserir(u);
+                out.println("Usuario registrado com sucesso");
             }
-            else if(command.equalsIgnoreCase("cadastro")){
-                rd = request.getRequestDispatcher("/UsuarioController");
-                request.setAttribute("nome", request.getParameter("nome"));
-                request.setAttribute("usuario", request.getParameter("usuario"));
-                request.setAttribute("senha", request.getParameter("senha"));
-                request.setAttribute("email", request.getParameter("email"));
-                request.setAttribute("tipo", "inserir");
-                
-                
-                rd.forward(request, response);
-            }
-            
-            
-            
-        
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -87,9 +78,6 @@ public class FrontController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        
-        command = request.getParameter("command");
         processRequest(request, response);
     }
 
