@@ -10,6 +10,7 @@ import com.br.lp3.entities.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UsuarioController extends HttpServlet {
     @EJB
     private DAOManagerLocal dAOUser;
+    private RequestDispatcher rd;
 
     
     /**
@@ -46,8 +48,20 @@ public class UsuarioController extends HttpServlet {
                 u.setSenha(request.getAttribute("senha").toString());
                 u.setEmail(request.getAttribute("email").toString());
                 u.setTipoUsuario(0);
+                for (Usuario user : dAOUser.readList()) {
+                    if(user.getLogin().equals(u.getLogin())){
+                        rd = request.getRequestDispatcher("/TelaCadastro.jsp");
+                        rd.forward(request, response);
+                    }
+                }
                 dAOUser.inserir(u);
-                out.println("Usuario registrado com sucesso");
+                for (Usuario user : dAOUser.readList()) {
+                    if (user.getLogin().equals(u.getLogin()) && user.getSenha().equals(u.getSenha())) {
+                        request.getSession().setAttribute("usuario", user);
+                     }
+                }
+                rd = request.getRequestDispatcher("/TelaEscolhaMarvel.jsp");
+                rd.forward(request, response);
             }
         }
     }

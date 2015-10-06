@@ -5,18 +5,13 @@
  */
 package com.br.lp3.controller;
 
-import com.br.lp3.DAO.DAOManagerLocal;
+import com.br.lp3.DAO.DAOHeroimarvelLocal;
+import com.br.lp3.entities.Heroimarvel;
 import com.br.lp3.entities.Usuario;
-import com.br.lp3.DAO.DAOUser;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,15 +19,12 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Raquel
+ * @author william
  */
-public class LoginController extends HttpServlet {
-    
+public class MarvelController extends HttpServlet {
     @EJB
-    private DAOManagerLocal dAOUser;
-    
-
-    
+    private DAOHeroimarvelLocal dAOHeroimarvel;
+    private RequestDispatcher rd;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,20 +40,18 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            String nomemarvel = request.getAttribute("nome").toString();
+            Usuario u =(Usuario) request.getSession().getAttribute("usuario");
+            Heroimarvel marvel = new Heroimarvel();
+            marvel.setNomeHeroimar(nomemarvel);
+            //Conexão webService para pegar historia
+            marvel.setHistoria(null);
+            marvel.setIdUsermarvel(u);
+            dAOHeroimarvel.inserir(marvel);
+            rd = request.getRequestDispatcher("/TelaInicial.jsp");
+            rd.forward(request, response);
             
-           String login = request.getAttribute("usuario").toString();
-           String senha = request.getAttribute("senha").toString();
-           Usuario user = new Usuario();
-           user.setLogin(login);
-           user.setSenha(senha);
-           boolean resp = dAOUser.verificaLogin(user);
-            if (resp){
-                out.println("Usuário Logado");
-            }else{
-                out.println("Usuário inválido");
-            }
-        
-    }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

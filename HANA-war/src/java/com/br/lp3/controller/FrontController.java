@@ -55,6 +55,11 @@ public class FrontController extends HttpServlet {
                 
                 rd.forward(request, response);
             }
+            else if(command.equalsIgnoreCase("escolhamarvel")){
+                rd = request.getRequestDispatcher("/MarvelController");
+                request.setAttribute("nome", request.getParameter("nomemarvel"));
+                rd.forward(request, response);
+            }
             
             
             

@@ -12,6 +12,10 @@
         <servlet-name>UsuarioController</servlet-name>
         <servlet-class>com.br.lp3.controller.UsuarioController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MarvelController</servlet-name>
+        <servlet-class>com.br.lp3.controller.MarvelController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>UsuarioController</servlet-name>
         <url-pattern>/UsuarioController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MarvelController</servlet-name>
+        <url-pattern>/MarvelController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
