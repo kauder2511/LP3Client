@@ -37,8 +37,7 @@
             <div class="banner-info">
                 <div class="container">
                     <div class="logo">
-                        <h1 class="logoh1"><a href="TelaInicial.jsp">HANA</a></h1>
-                        <h3 class="logoh3"> Heroes of a New Age </h3>
+                        <a href="TelaInicial.jsp"><img src="images/logoHANA.jpg" style="width: 250px"/></a>
                     </div>
                     <div class="top-menu">
                         <span class="menu"></span>
@@ -91,7 +90,7 @@
                 $("#slider").responsiveSlides({
                     auto: true,
                     nav: false,
-                    speed: 2000,
+                    speed: 3000,
                     namespace: "callbacks",
                     pager: true,
                 });

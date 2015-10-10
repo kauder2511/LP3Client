@@ -54,18 +54,7 @@ a#toTop{
 }
 .logo{
 	float:left;
-}
-.logo h1 a{
-	color:#E00000;
-	font-family: 'Play-Bold';
-	text-decoration:none;
-  text-align: center;
-}
-.logoh1{
-  text-align: center;
-}
-.logoh3{
-  color:#fff;
+        margin-top: -90px;
 }
 .top-menu{
 	float:right;
@@ -1376,9 +1365,6 @@ a i.youtube {
   padding: 0.5em 0.8em;
   font-size: 1em;
 }
-.logo h1{
-	font-size:2em;
-}
 .top-menu {
   float: right;
   width: 54%;
@@ -1623,9 +1609,7 @@ a i.youtube {
   padding: 0.5em 0.8em;
   font-size: 1em;
 }
-.logo h1{
-	font-size:2em;
-}
+
 .caption h3 {
   font-size:1.85em;
 }
@@ -2074,9 +2058,6 @@ span.menu {
   padding: 5px 10px 0px 0px;
     margin-left: 2.5em;
 }
-.logo h1 {
-  font-size: 1.8em;
-}
 .top-menu {
   width: 65%;
 }
@@ -2289,9 +2270,6 @@ a i.youtube {
 .caption h3 {
   font-size: 1em;
   padding: 0 18px;
-}
-.logo h1 {
-  font-size: 1.4em;
 }
 .top-menu {
   width: 49%;
