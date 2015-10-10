@@ -14,9 +14,11 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -51,15 +53,18 @@ public class LoginController extends HttpServlet {
             
            String login = request.getAttribute("usuario").toString();
            String senha = request.getAttribute("senha").toString();
-           Usuario user = new Usuario();
-           user.setLogin(login);
-           user.setSenha(senha);
-           boolean resp = dAOUser.verificaLogin(user);
-            if (resp){
-                out.println("Usuário Logado");
-            }else{
-                out.println("Usuário inválido");
+            RequestDispatcher rd;
+           List<Usuario> lista = dAOUser.readList();
+            for (Usuario u : lista) {
+                if (u.getLogin().equals(login) && u.getSenha().equals(senha)) {
+                    rd = request.getRequestDispatcher("/TelaInicial.jsp");
+                    request.getSession().setAttribute("Usuario", u);
+                   rd.forward(request, response);
+                }
             }
+             rd = request.getRequestDispatcher("/index.jsp");
+             rd.forward(request, response);  
+            
         
     }
     }
