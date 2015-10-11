@@ -29,7 +29,7 @@
             <div class="banner-info">
                 <div class="container">
                     <div class="logo">
-                        <h1><a href="TelaInicial.jsp">HANA</a></h1>
+                        <a href="TelaInicial.jsp"><img src="images/logoHANA.jpg" style="width: 250px"/></a>
                     </div>
                     <div class="top-menu">
                         <span class="menu"></span>
