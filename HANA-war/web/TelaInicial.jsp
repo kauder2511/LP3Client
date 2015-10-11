@@ -131,39 +131,23 @@
         <div class="content">
             <div class="container">
                 <div class="top-games">
-                    <h3>Top Games</h3>
+                    <h3>Heróis</h3>
                     <span></span>
                 </div>
                 <div class="top-game-grids">
                     <ul id="flexiselDemo1">
-                        <li>
+                        <c:forEach var="h" items="${pageContext.session.getAttribute('Listaheroi')}">
+                            <li>
                             <div class="game-grid">
-                                <h4>Action Games</h4>
-                                <p>Nulla elementum nunc tempus.</p>
-                                <img src="images/t1.jpg" class="img-responsive" alt="" />
+                                <h4>${h.getNomeHeroi()}</h4>
+                                <p>${h.getIdCorpo().getIdVestimenta()}, ${h.getIdCapacete().getIdVestimenta()}</p>
+                                <img src="images/cabeca${h.getIdCapacete().getIdVestimenta()}.png" class="img-responsive"/>
+                                <img src="images/tronco${h.getIdCorpo().getIdVestimenta()}.png" class="img-responsive"/>
+                                <!--<img src="images/t1.jpg" class="img-responsive" alt="" />-->
                             </div>
-                        </li>
-                        <li>
-                            <div class="game-grid">
-                                <h4>Racing Games</h4>
-                                <p>Nulla elementum nunc tempus.</p>
-                                <img src="images/t3.jpg" class="img-responsive" alt="" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="game-grid">
-                                <h4>3D Games</h4>
-                                <p>Nulla elementum nunc tempus.</p>
-                                <img src="images/t4.jpg" class="img-responsive" alt="" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="game-grid">
-                                <h4>Arcade Games</h4>
-                                <p>Nulla elementum nunc tempus.</p>
-                                <img src="images/t2.jpg" class="img-responsive" alt="" />
-                            </div>
-                        </li>
+                            </li>
+                        </c:forEach>
+                        
                     </ul>
 
                     <script type="text/javascript">

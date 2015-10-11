@@ -67,6 +67,7 @@ public class LoginController extends HttpServlet {
                 request.getSession().setAttribute("Usuario", user);
                 request.getSession().setAttribute("Heroimarvel", buscaMarvel(user));
                 request.getSession().setAttribute("Heroi", buscaHeroi(user));
+                request.getSession().setAttribute("Listaheroi", buscalistaheroi());
                 rd = request.getRequestDispatcher("/TelaInicial.jsp");
                 rd.forward(request, response);
             }
@@ -99,6 +100,8 @@ public class LoginController extends HttpServlet {
 
     }
     
+    
+    
     private Heroi buscaHeroi(Usuario user){
         List<Heroi> lista = dAOHeroi.read();
         for (Heroi her : lista) {
@@ -108,6 +111,10 @@ public class LoginController extends HttpServlet {
         }
         
         return null;
+    }
+    
+    private List<Heroi> buscalistaheroi(){
+        return dAOHeroi.read();
     }
     
 
