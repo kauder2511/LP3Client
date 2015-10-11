@@ -3,7 +3,7 @@
     Created on : 04/10/2015, 21:16:58
     Author     : Raquel
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,6 +21,7 @@
         </script>
 
         <title>Contact</title>
+        <c:set var="heroi" value="${pageContext.session.getAttribute('Heroimarvel')}"/>
     </head>
 
     <body>
@@ -47,10 +48,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="TelaReviews.jsp">Reviews</a>
+                                <a href="TelaReviews.jsp">${heroi.getNomeHeroimar()}</a>
                             </li>
                             <li>
-                                <a href="TelaTypo.jsp">News</a>
+                                <a href="TelaMeuHeroi.jsp">Meu Herói</a>
                             </li>
                             <li>
                                 <a href="TelaGallery.jsp">
@@ -66,11 +67,11 @@
                     </div>
                     <!-- script-for-menu -->
                     <script>
-$("span.menu").click(function () {
-$("ul.nav1").slideToggle(300, function () {
+                        $("span.menu").click(function () {
+                            $("ul.nav1").slideToggle(300, function () {
 // Animation complete.
-});
-});
+                            });
+                        });
                     </script>
                     <!-- /script-for-menu -->
                     <div class="clearfix"></div>
@@ -90,19 +91,19 @@ $("ul.nav1").slideToggle(300, function () {
                     <form>
                         <div class="col-md-6 contact-left">
                             <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Name';
-                                                }">
+                                        this.value = 'Name';
+                                    }">
                             <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Email';
-                                                }">
+                                        this.value = 'Email';
+                                    }">
                             <input type="text" class="text" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Phone';
-                                                }">
+                                        this.value = 'Phone';
+                                    }">
                         </div>
                         <div class="col-md-6 contact-right">
                             <textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                             this.value = 'Message';
-                                                         }">Message</textarea>
+                                        this.value = 'Message';
+                                    }">Message</textarea>
                             <input type="submit" value="SEND"/>
                         </div>
                         <div class="clearfix"></div>

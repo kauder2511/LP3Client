@@ -4,6 +4,7 @@
     Author     : Raquel
 --%>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,6 +28,7 @@
         </script>
 
         <title>Single</title>
+        <c:set var="heroi" value="${pageContext.session.getAttribute('Heroimarvel')}"/>
     </head>
 
     <body>
@@ -52,10 +54,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="TelaReviews.jsp">Reviews</a>
+                                <a href="TelaReviews.jsp">${heroi.getNomeHeroimar()}</a>
                             </li>
                             <li>
-                                <a href="TelaTypo.jsp">News</a>
+                                <a href="TelaMeuHeroi.jsp">Meu Herói</a>
                             </li>
                             <li>
                                 <a href="TelaGallery.jsp">

@@ -3,7 +3,7 @@
     Created on : 04/10/2015, 21:19:44
     Author     : Raquel
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,6 +21,7 @@
         </script>
 
         <title>Gallery</title>
+        <c:set var="heroi" value="${pageContext.session.getAttribute('Heroimarvel')}"/>
     </head>
 
     <body>
@@ -46,10 +47,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="TelaReviews.jsp">Reviews</a>
+                                <a href="TelaReviews.jsp">${heroi.getNomeHeroimar()}</a>
                             </li>
                             <li>
-                                <a href="TelaTypo.jsp">News</a>
+                                <a href="TelaMeuHeroi.jsp">Meu Herói</a>
                             </li>
                             <li class="active">
                                 <a href="TelaGallery.jsp">
@@ -65,11 +66,11 @@
                     </div>
                     <!-- script-for-menu -->
                     <script>
-$("span.menu").click(function () {
-$("ul.nav1").slideToggle(300, function () {
+                        $("span.menu").click(function () {
+                            $("ul.nav1").slideToggle(300, function () {
 // Animation complete.
-});
-});
+                            });
+                        });
                     </script>
                     <!-- /script-for-menu -->
                     <div class="clearfix"></div>

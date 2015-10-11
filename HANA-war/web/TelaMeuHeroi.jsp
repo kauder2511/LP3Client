@@ -26,7 +26,7 @@
             }
         </script>
 
-        <title>Typo</title>
+        <title>Meu Herói</title>
         <c:set var="heroi" value="${pageContext.session.getAttribute('Heroimarvel')}"/>
         <c:set var="meuheroi" value="${pageContext.session.getAttribute('Heroi')}"/>
     </head>
@@ -58,7 +58,7 @@
                                 <a href="TelaReviews.jsp">${heroi.getNomeHeroimar()}</a>
                             </li>
                             <li class="active">
-                                <a href="TelaTypo.jsp">News</a>
+                                <a href="TelaMeuHeroi.jsp">Meu Herói</a>
                             </li>
                             <li>
                                 <a href="TelaGallery.jsp">
@@ -91,9 +91,11 @@
             </div>
         </div>
         <!--pages-starts-->
+        <div class="divHeroi">OLAAAAA</div>
         <c:choose>
             <c:when test="${meuheroi != null}">
-               VocÊ possui um heroi o nome dele é ${meuheroi.getNomeHeroi()}
+                <div class="divHeroi">OLA</div>
+                <span class="divHeroi">${meuheroi.getNomeHeroi()}</span>
             </c:when>
             <c:otherwise>
                 VocÊ não tem um heroi.
