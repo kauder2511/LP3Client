@@ -21,11 +21,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author william
  */
 public class UsuarioController extends HttpServlet {
+
     @EJB
     private DAOManagerLocal dAOUser;
     private RequestDispatcher rd;
 
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,27 +41,31 @@ public class UsuarioController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String tipo = request.getAttribute("tipo").toString();
-            if(tipo.equalsIgnoreCase("inserir")){
+            if (tipo.equalsIgnoreCase("inserir")) {
                 Usuario u = new Usuario();
                 u.setNomeUsuario(request.getAttribute("nome").toString());
                 u.setLogin(request.getAttribute("usuario").toString());
                 u.setSenha(request.getAttribute("senha").toString());
                 u.setEmail(request.getAttribute("email").toString());
                 u.setTipoUsuario(0);
+                boolean ok = true;
                 for (Usuario user : dAOUser.readList()) {
-                    if(user.getLogin().equals(u.getLogin())){
+                    if (user.getLogin().equals(u.getLogin())) {
                         rd = request.getRequestDispatcher("/TelaCadastro.jsp");
                         rd.forward(request, response);
+                        ok = false;
                     }
                 }
-                dAOUser.inserir(u);
-                for (Usuario user : dAOUser.readList()) {
-                    if (user.getLogin().equals(u.getLogin()) && user.getSenha().equals(u.getSenha())) {
-                        request.getSession().setAttribute("usuario", user);
-                     }
+                if (ok) {
+                    dAOUser.inserir(u);
+                    for (Usuario user : dAOUser.readList()) {
+                        if (user.getLogin().equals(u.getLogin()) && user.getSenha().equals(u.getSenha())) {
+                            request.getSession().setAttribute("Usuario", user);
+                        }
+                    }
+                    rd = request.getRequestDispatcher("/TelaEscolhaMarvel.jsp");
+                    rd.forward(request, response);
                 }
-                rd = request.getRequestDispatcher("/TelaEscolhaMarvel.jsp");
-                rd.forward(request, response);
             }
         }
     }

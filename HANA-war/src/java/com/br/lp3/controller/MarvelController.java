@@ -48,6 +48,7 @@ public class MarvelController extends HttpServlet {
             marvel.setHistoria(null);
             marvel.setIdUsermarvel(u);
             dAOHeroimarvel.inserir(marvel);
+            request.getSession().setAttribute("Heroimarvel", marvel);
             rd = request.getRequestDispatcher("/TelaInicial.jsp");
             rd.forward(request, response);
             
