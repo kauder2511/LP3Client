@@ -12,11 +12,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
         <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
-        <script src="js/bootstrap.js"></script>
+        <link href="css/style_inicial.css" rel='stylesheet' type='text/css' />
         <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <script src="js/responsiveslides.min.js"></script>
         <script src="js/caroussel.js"></script>
-
         <script type="application/x-javascript">
             addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -58,7 +59,7 @@
                                 <a href="TelaReviews.jsp">${heroi.getNomeHeroimar()}</a>
                             </li>
                             <li>
-                                <a href="TelaTypo.jsp">Meu Herói</a>
+                                <a href="TelaMeuHeroi.jsp">Meu Herói</a>
                             </li>
                             <li>
                                 <a href="TelaGallery.jsp">
@@ -134,20 +135,22 @@
                     <h3>Heróis</h3>
                     <span></span>
                 </div>
-                <div class="top-game-grids">
+                <div class="top-game-grids divSeparaHerois">
                     <ul id="flexiselDemo1">
                         <c:forEach var="h" items="${pageContext.session.getAttribute('Listaheroi')}">
                             <li>
-                            <div class="game-grid">
-                                <h4>${h.getNomeHeroi()}</h4>
-                                <p>${h.getIdCorpo().getIdVestimenta()}, ${h.getIdCapacete().getIdVestimenta()}</p>
-                                <img src="images/cabeca${h.getIdCapacete().getIdVestimenta()}.png" class="img-responsive"/>
-                                <img src="images/tronco${h.getIdCorpo().getIdVestimenta()}.png" class="img-responsive"/>
-                                <!--<img src="images/t1.jpg" class="img-responsive" alt="" />-->
-                            </div>
+                                <div class="game-grid">
+                                    <h4 style="font-family:heroesassembleacadital;font-size: 35px; color:white;">${h.getNomeHeroi()}</h4>
+                                    <p>${h.getIdCorpo().getIdVestimenta()}, ${h.getIdCapacete().getIdVestimenta()}</p>
+                                    <div class="divHerois">
+                                        <img src="images/cabeca${h.getIdCapacete().getIdVestimenta()}.png" class="img-responsive imgHeroisCab"/>
+                                        <img src="images/tronco${h.getIdCorpo().getIdVestimenta()}.png" class="img-responsive imgHeroisCor"/>
+                                    </div>
+                                    <!--<img src="images/t1.jpg" class="img-responsive" alt="" />-->
+                                </div>
                             </li>
                         </c:forEach>
-                        
+
                     </ul>
 
                     <script type="text/javascript">

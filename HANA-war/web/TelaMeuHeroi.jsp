@@ -13,6 +13,7 @@
         <!-- Page style with bootstrap -->
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
         <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
+        <link href="css/style_inicial.css" rel='stylesheet' type='text/css' />
         <!-- Javascript with bootstrap and jQuery -->
         <script src="js/bootstrap.js"></script>
         <script src="js/jquery.min.js"></script>
@@ -91,63 +92,61 @@
             </div>
         </div>
         <!--pages-starts-->
-        <div class="divHeroi">OLAAAAA</div>
         <c:choose>
             <c:when test="${meuheroi != null}">
-                <div class="divHeroi">OLA</div>
-                <span class="divHeroi">${meuheroi.getNomeHeroi()}</span>
+                <p class="pMeuHeroi">${meuheroi.getNomeHeroi()}</p>
             </c:when>
             <c:otherwise>
-                VocÊ não tem um heroi.
-            </c:otherwise>
-        </c:choose>
-        <!--pages-ends-->
-        <!-- footer -->
-        <div class="footer">
-            <div class="container">
-                <div class="footer-grids">
-                    <div class="col-md-3 ftr-info">
-                        <h3>About Us</h3>
-                        <p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
+                <span classVocÊ não tem um heroi.
+                </c:otherwise>
+            </c:choose>
+            <!--pages-ends-->
+            <!-- footer -->
+            <div class="footer">
+                <div class="container">
+                    <div class="footer-grids">
+                        <div class="col-md-3 ftr-info">
+                            <h3>About Us</h3>
+                            <p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
+                        </div>
+                        <div class="col-md-3 ftr-grid">
+                            <h3>Categories</h3>
+                            <ul class="ftr-list">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Racing</a></li>
+                                <li><a href="#">Adventure</a></li>
+                                <li><a href="#">Simulation</a></li>
+                                <li><a href="#">Bike</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 ftr-grid">
+                            <h3>Platform</h3>
+                            <ul class="ftr-list">
+                                <li><a href="#">Pc</a></li>
+                                <li><a href="#">Ps4</a></li>
+                                <li><a href="#">XBOX 360</a></li>
+                                <li><a href="#">XBOX ONE</a></li>
+                                <li><a href="#">PSP</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 ftr-grid">
+                            <h3>Information</h3>
+                            <ul class="ftr-list">
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Wish Lists</a></li>
+                                <li><a href="#">Site Map</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="col-md-3 ftr-grid">
-                        <h3>Categories</h3>
-                        <ul class="ftr-list">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Racing</a></li>
-                            <li><a href="#">Adventure</a></li>
-                            <li><a href="#">Simulation</a></li>
-                            <li><a href="#">Bike</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 ftr-grid">
-                        <h3>Platform</h3>
-                        <ul class="ftr-list">
-                            <li><a href="#">Pc</a></li>
-                            <li><a href="#">Ps4</a></li>
-                            <li><a href="#">XBOX 360</a></li>
-                            <li><a href="#">XBOX ONE</a></li>
-                            <li><a href="#">PSP</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 ftr-grid">
-                        <h3>Information</h3>
-                        <ul class="ftr-list">
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Wish Lists</a></li>
-                            <li><a href="#">Site Map</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
-        </div>
-        <!---->
-        <div class="copywrite">
-            <div class="container">
-                <p> © 2015 Game Box. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+            <!---->
+            <div class="copywrite">
+                <div class="container">
+                    <p> © 2015 Game Box. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                </div>
             </div>
-        </div>
     </body>
 </html>

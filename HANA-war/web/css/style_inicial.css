@@ -1,0 +1,57 @@
+/* 
+    Created on : 11/10/2015, 13:54:57
+    Author     : Raquel
+*/
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url(../fonts/OpenSans-Regular.ttf)format('truetype');
+}
+@font-face {
+    font-family: 'Play-Bold';
+    src: url(../fonts/Play-Bold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Play-Regular';
+    src: url(../fonts/Play-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'heroesassembleboldexpandital2';
+    src: url(../fonts/heroesassembleboldexpandital2.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'heroesassembleboldital2';
+    src: url(../fonts/heroesassembleboldital2.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'heroesassembleacadital';
+    src: url(../fonts/heroesassembleacadital.ttf)format('truetype');
+}
+.h4Herois{
+    color: #FFF;
+    font-family: Play-Regular;
+}
+.divHerois{
+    width: 100%;
+    padding-left: 25%;
+}
+.imgHeroisCab{
+    padding-left: 16px;
+    width: 60%;
+    height: 60%;
+}
+.imgHeroisCor{
+    padding-left: 20px;
+    width: 60%;
+    height: 60%;
+}
+.divSeparaHerois{
+    width: 100%;
+}
+.pMeuHeroi{
+    font-size: 60px;
+    font-family: heroesassembleacadital;
+    text-align: center;
+    color:#E00000;
+}
+

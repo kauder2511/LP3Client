@@ -11,7 +11,7 @@ p {margin: 0;}
 html, body{
     font-family: 'OpenSans-Regular';
     font-size: 100%;
-    background: #fff;
+    background: #000;
 }
 
 @font-face {
@@ -25,6 +25,18 @@ html, body{
 @font-face {
     font-family: 'Play-Regular';
     src: url(../fonts/Play-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'heroesassembleboldexpandital2';
+    src: url(../fonts/heroesassembleboldexpandital2.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'heroesassembleboldital2';
+    src: url(../fonts/heroesassembleboldital2.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'heroesassembleacadital';
+    src: url(../fonts/heroesassembleacadital.ttf)format('truetype');
 }
 h1.b1, h2.b2, h3.b3 {
     margin-bottom: 25px;
@@ -206,17 +218,16 @@ ul.callbacks_tabs.callbacks1_tabs {
 }
 .nbs-flexisel-item {
     float: left;
-    margin: 0px;
-    padding: 0px 21px;
+    margin: auto;
     cursor: pointer;
     position: relative;
     line-height: 0px;
-    width: 285px!important;
+    width: 300px!important;
 }
 .nbs-flexisel-item > img {
     cursor:auto;
     position: relative;
-    width: 90%;
+    width: 100%;
     margin: 0 5%;
 }
 .content{
@@ -2476,10 +2487,4 @@ h3.ghj {
     }
     .blog-info p {
         margin-top: 0.5em;
-    }
-    
-    #divHeroi{
-        color:#E00000;
-        text-align: center;
-
     }
