@@ -5,11 +5,14 @@
  */
 package com.br.lp3.controller;
 
+import com.br.lp3.DAO.DAOHeroiLocal;
 import com.br.lp3.DAO.DAOHeroimarvelLocal;
+import com.br.lp3.entities.Heroi;
 import com.br.lp3.entities.Heroimarvel;
 import com.br.lp3.entities.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,8 +26,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MarvelController extends HttpServlet {
     @EJB
+    private DAOHeroiLocal dAOHeroi;
+    @EJB
     private DAOHeroimarvelLocal dAOHeroimarvel;
     private RequestDispatcher rd;
+    
+    
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +45,10 @@ public class MarvelController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        
             /* TODO output your page here. You may use following sample code. */
             String nomemarvel = request.getAttribute("nome").toString();
-            Usuario u =(Usuario) request.getSession().getAttribute("usuario");
+            Usuario u =(Usuario) request.getSession().getAttribute("Usuario");
             Heroimarvel marvel = new Heroimarvel();
             marvel.setNomeHeroimar(nomemarvel);
             //Conexão webService para pegar historia
@@ -49,10 +56,15 @@ public class MarvelController extends HttpServlet {
             marvel.setIdUsermarvel(u);
             dAOHeroimarvel.inserir(marvel);
             request.getSession().setAttribute("Heroimarvel", marvel);
+            request.getSession().setAttribute("Listaheroi", buscalistaheroi());
             rd = request.getRequestDispatcher("/TelaInicial.jsp");
             rd.forward(request, response);
             
-        }
+        
+    }
+    
+    private List<Heroi> buscalistaheroi(){
+        return dAOHeroi.read();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

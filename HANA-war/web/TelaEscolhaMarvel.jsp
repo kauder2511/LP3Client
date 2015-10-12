@@ -1,7 +1,8 @@
 <%-- 
     Document   : TelaEscolhaMarvel
     Created on : 04/10/2015, 21:55:16
-    Author     : william
+    Author     : William Cisang (31441564)
+    Author     : Raquel Gallo (31458521)
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

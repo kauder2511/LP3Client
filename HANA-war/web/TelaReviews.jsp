@@ -1,7 +1,8 @@
 <%-- 
     Document   : TelaReviews
     Created on : 04/10/2015, 21:21:31
-    Author     : Raquel
+    Author     : Raquel Gallo (31458521)
+    Author     : William Cisang (31441564)
 --%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

@@ -1,8 +1,8 @@
 <%-- 
     Document   : index
     Created on : 25/09/2015, 11:32:14
-    Author     : Raquel Gallo
-    Author     : William Cisang
+    Author     : Raquel Gallo (31458521)
+    Author     : William Cisang (31441564)
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

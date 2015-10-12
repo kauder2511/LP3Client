@@ -7,17 +7,20 @@ package com.br.lp3.controller;
 
 import com.br.lp3.DAO.DAOHeroiLocal;
 import com.br.lp3.DAO.DAOHeroimarvelLocal;
+import com.br.lp3.DAO.DAOHistoriaLocal;
 import com.br.lp3.DAO.DAOManagerLocal;
 import com.br.lp3.entities.Usuario;
 import com.br.lp3.DAO.DAOUser;
 import com.br.lp3.entities.Heroi;
 import com.br.lp3.entities.Heroimarvel;
+import com.br.lp3.entities.Historia;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -35,6 +38,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoginController extends HttpServlet {
     @EJB
+    private DAOHistoriaLocal dAOHistoria;
+    @EJB
     private DAOHeroiLocal dAOHeroi;
 
     @EJB
@@ -42,6 +47,8 @@ public class LoginController extends HttpServlet {
 
     @EJB
     private DAOManagerLocal dAOUser;
+    
+    
     
 
     /**
@@ -68,6 +75,7 @@ public class LoginController extends HttpServlet {
                 request.getSession().setAttribute("Heroimarvel", buscaMarvel(user));
                 request.getSession().setAttribute("Heroi", buscaHeroi(user));
                 request.getSession().setAttribute("Listaheroi", buscalistaheroi());
+                request.getSession().setAttribute("Listahistoria", buscaHistoria(buscaHeroi(user)));
                 rd = request.getRequestDispatcher("/TelaInicial.jsp");
                 rd.forward(request, response);
             }
@@ -99,9 +107,7 @@ public class LoginController extends HttpServlet {
         return null;
 
     }
-    
-    
-    
+
     private Heroi buscaHeroi(Usuario user){
         List<Heroi> lista = dAOHeroi.read();
         for (Heroi her : lista) {
@@ -117,7 +123,17 @@ public class LoginController extends HttpServlet {
         return dAOHeroi.read();
     }
     
-
+    private List<Historia> buscaHistoria(Heroi heroi){
+        List<Historia> lista = dAOHistoria.readList();
+        List<Historia> listahistoria = new ArrayList<>();
+        for (Historia hist : lista) {
+            if((Objects.equals(hist.getIdheroi().getIdHeroi(), heroi.getIdHeroi())) && 
+                    ((hist.getRoteiro() == 1) || (hist.getRoteiro() == 2) || (hist.getRoteiro() == 3))){
+                listahistoria.add(hist);
+            }
+        }
+        return listahistoria;
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

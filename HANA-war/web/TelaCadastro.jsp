@@ -1,7 +1,8 @@
 <%-- 
     Document   : TelaCadastro
     Created on : 04/10/2015, 16:48:35
-    Author     : william
+    Author     : William Cisang (31441564)
+    Author     : Raquel Gallo (31458521)
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

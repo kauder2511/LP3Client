@@ -1,6 +1,7 @@
 /* 
     Created on : 11/10/2015, 13:54:57
-    Author     : Raquel
+    Author     : Raquel Gallo (31458521)
+    Author     : William Cisang (31441564)
 */
 
 @font-face {
@@ -53,5 +54,59 @@
     font-family: heroesassembleacadital;
     text-align: center;
     color:#E00000;
+    padding-top: 15px;
 }
-
+.div-container{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.heroi{
+    height: 100%;
+    padding: 5%;
+    float: left;
+    position: relative;
+}
+.imgHeroiCab{
+    width: 30%;
+    height: 30%;
+    margin-left: 35%;
+}
+.imgHeroiCor{
+    width: 30%;
+    height: 30%;
+    margin-left: 35%;
+}
+.historia{
+    height: 100%;
+    padding: 5%;
+    float: right;
+    overflow: hidden;
+    position: relative;
+    color: #FFF;
+    text-align: justify;
+}
+.intro{
+    width: 100%;
+    height: 100%;
+}
+.meio{
+    width: 100%;
+    height: 100%;
+}
+.conclusao{
+    width: 100%;
+    height: 100%; 
+}
+.editarHist{
+    padding-right: 5%;
+    float: right;
+    color: #9d9d9d;
+    font-size: 18px;
+}
+.editarIcone{
+   
+   float: left;
+   padding-right: 5px;
+   color:  #9d9d9d;
+}

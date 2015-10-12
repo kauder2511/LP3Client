@@ -1,7 +1,8 @@
 <%-- 
     Document   : TelaTypo
     Created on : 04/10/2015, 21:23:45
-    Author     : Raquel
+    Author     : Raquel Gallo (31458521)
+    Author     : William Cisang (31441564)
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,8 +16,8 @@
         <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
         <link href="css/style_inicial.css" rel='stylesheet' type='text/css' />
         <!-- Javascript with bootstrap and jQuery -->
-        <script src="js/bootstrap.js"></script>
         <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.js"></script>
         <script type="application/x-javascript">
             addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -29,6 +30,7 @@
 
         <title>Meu Herói</title>
         <c:set var="heroi" value="${pageContext.session.getAttribute('Heroimarvel')}"/>
+
         <c:set var="meuheroi" value="${pageContext.session.getAttribute('Heroi')}"/>
     </head>
 
@@ -77,7 +79,7 @@
                     <script>
                         $("span.menu").click(function () {
                             $("ul.nav1").slideToggle(300, function () {
-// Animation complete.
+                                // Animation complete.
                             });
                         });
                     </script>
@@ -95,58 +97,108 @@
         <c:choose>
             <c:when test="${meuheroi != null}">
                 <p class="pMeuHeroi">${meuheroi.getNomeHeroi()}</p>
-            </c:when>
-            <c:otherwise>
-                <span classVocÊ não tem um heroi.
-                </c:otherwise>
-            </c:choose>
-            <!--pages-ends-->
-            <!-- footer -->
-            <div class="footer">
-                <div class="container">
-                    <div class="footer-grids">
-                        <div class="col-md-3 ftr-info">
-                            <h3>About Us</h3>
-                            <p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
+                <div class="div-container">
+                    <a href="TelaEditarHistoria.jsp">
+                        <span class="editarHist"> Editar
+                            <i class="glyphicon glyphicon-edit editarIcone"></i>
+                        </span>
+                    </a>
+                    <div class="row">
+                        <div class="col-md-6 heroi">
+                            <img src="images/cabeca${meuheroi.getIdCapacete().getIdVestimenta()}.png" class="img-responsive imgHeroiCab"/>
+                            <img src="images/tronco${meuheroi.getIdCorpo().getIdVestimenta()}.png" class="img-responsive imgHeroiCor"/>
                         </div>
-                        <div class="col-md-3 ftr-grid">
-                            <h3>Categories</h3>
-                            <ul class="ftr-list">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Racing</a></li>
-                                <li><a href="#">Adventure</a></li>
-                                <li><a href="#">Simulation</a></li>
-                                <li><a href="#">Bike</a></li>
-                            </ul>
+                        <div class="col-md-6 historia">
+                            <c:forEach var="hist" items="${pageContext.session.getAttribute('Listahistoria')}">
+                                <div class="row">
+                                    <c:choose>
+                                        <c:when test="${hist.getRoteiro() == 1}">
+                                            <div class="col-xs-4 intro">
+                                                ${hist.getHistoria()}
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${hist.getRoteiro() == 2}">
+                                            <div class="col-xs-4 meio">
+                                                ${hist.getHistoria()}
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="col-xs-4 conclusao">
+                                                ${hist.getHistoria()}
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
+
+                                </div>
+                            </c:forEach>
                         </div>
-                        <div class="col-md-3 ftr-grid">
-                            <h3>Platform</h3>
-                            <ul class="ftr-list">
-                                <li><a href="#">Pc</a></li>
-                                <li><a href="#">Ps4</a></li>
-                                <li><a href="#">XBOX 360</a></li>
-                                <li><a href="#">XBOX ONE</a></li>
-                                <li><a href="#">PSP</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 ftr-grid">
-                            <h3>Information</h3>
-                            <ul class="ftr-list">
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Wish Lists</a></li>
-                                <li><a href="#">Site Map</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
                 </div>
-            </div>
-            <!---->
-            <div class="copywrite">
-                <div class="container">
-                    <p> © 2015 Game Box. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+            </c:when>
+            <c:otherwise>
+                <p class="pMeuHeroi">Faça seu Heroi</p>
+                <div class="container-all">
+                    <div class="row">
+                        <div class="col-md-4">
+                            ....
+                        </div>
+                        <div class="col-md-4">
+                            .....
+                        </div>
+                        <div class="col-md-4">
+                            .....
+                        </div>
+                    </div>
+                </div>
+            </c:otherwise>
+        </c:choose>
+        <!--pages-ends-->
+        <!-- footer -->
+        <div class="footer">
+            <div class="container">
+                <div class="footer-grids">
+                    <div class="col-md-3 ftr-info">
+                        <h3>About Us</h3>
+                        <p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
+                    </div>
+                    <div class="col-md-3 ftr-grid">
+                        <h3>Categories</h3>
+                        <ul class="ftr-list">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Racing</a></li>
+                            <li><a href="#">Adventure</a></li>
+                            <li><a href="#">Simulation</a></li>
+                            <li><a href="#">Bike</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 ftr-grid">
+                        <h3>Platform</h3>
+                        <ul class="ftr-list">
+                            <li><a href="#">Pc</a></li>
+                            <li><a href="#">Ps4</a></li>
+                            <li><a href="#">XBOX 360</a></li>
+                            <li><a href="#">XBOX ONE</a></li>
+                            <li><a href="#">PSP</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 ftr-grid">
+                        <h3>Information</h3>
+                        <ul class="ftr-list">
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Wish Lists</a></li>
+                            <li><a href="#">Site Map</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
+        </div>
+        <!---->
+        <div class="copywrite">
+            <div class="container">
+                <p> © 2015 Game Box. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+            </div>
+        </div>
     </body>
 </html>
