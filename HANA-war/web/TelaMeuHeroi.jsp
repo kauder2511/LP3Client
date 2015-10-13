@@ -1,5 +1,5 @@
 <%-- 
-    Document   : TelaTypo
+    Document   : TelaMeuHeroi
     Created on : 04/10/2015, 21:23:45
     Author     : Raquel Gallo (31458521)
     Author     : William Cisang (31441564)

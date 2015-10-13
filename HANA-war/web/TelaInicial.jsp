@@ -121,7 +121,12 @@
                         </div>
                     </div>
 
-                    <div class="slid banner4">
+                    <div class="slid banner4"style="opacity: 0.1">
+                        <div class="caption">
+                        </div>
+                    </div>
+                    
+                    <div class="slid banner5">
                         <div class="caption">
                         </div>
                     </div>

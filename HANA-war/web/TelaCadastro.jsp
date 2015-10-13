@@ -9,11 +9,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
-        <script src="js/TweenMax.min.js"></script>
         <script src="js/cadastro.js" ></script>
+        <script src="js/TweenMax.min.js"></script>
         <link href="css/cadastro.css" rel="stylesheet" type="text/css"/>
+        
         <title>Cadastro - HANA</title>
     </head>
     <body class="background-image">

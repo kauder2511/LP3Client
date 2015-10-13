@@ -12,14 +12,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/jquery.min.js"></script>
         <script src="js/isotope.pkgd.min.js"></script>
+        <script src="js/escolhamarvel.js"></script>
         <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script> -->
         <link href="css/escolhamarvel.css" rel="stylesheet" type="text/css"/>
         <link href="css/animate.min.css" rel="stylesheet" type="text/css"/>
-        <script src="js/escolhamarvel.js"></script>
 
-
-        <title>JSP Page</title>
+        <title>Escolha Herói - HANA</title>
     </head>
     <body>
         

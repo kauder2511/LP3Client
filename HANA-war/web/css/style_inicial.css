@@ -28,6 +28,10 @@
     font-family: 'heroesassembleacadital';
     src: url(../fonts/heroesassembleacadital.ttf)format('truetype');
 }
+@font-face {
+    font-family: 'heroesassemblegrad';
+    src: url(../fonts/heroesassemblegrad.ttf)format('truetype');
+}
 .h4Herois{
     color: #FFF;
     font-family: Play-Regular;
@@ -109,4 +113,26 @@
    float: left;
    padding-right: 5px;
    color:  #9d9d9d;
+}
+.wImg{
+    padding-left: 150px;
+    width: 400px;
+    height: 300px;
+}
+.rImg{
+    padding-left: 170px;
+    width: 350px;
+    height: 300px;
+}
+.h4About{
+    text-align: center;
+    padding-top: 5px;
+    color: #E00000;
+}
+.pAbout{
+    padding-top: 5px;
+    color: #fff;
+    width: 100%;
+    margin-left: 50px;
+    margin-right: 10px;
 }
