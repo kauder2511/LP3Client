@@ -1,4 +1,3 @@
-
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Historia;
@@ -10,7 +9,6 @@ import javax.ejb.Local;
  * @author William Cisang (31441564)
  * @author Raquel Gallo (31458521)
  */
-
 @Local
 public interface DAOHistoriaLocal {
 
@@ -21,5 +19,5 @@ public interface DAOHistoriaLocal {
     void update(Historia historia);
 
     void delete(int id);
-    
+
 }

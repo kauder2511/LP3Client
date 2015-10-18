@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.br.lp3.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Raquel
+ * @author Raquel Gallo (31458521)
+ * @author William Cisang (31441564)
  */
 public class FrontController extends HttpServlet {
 
@@ -28,42 +23,39 @@ public class FrontController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     String command;
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-            
-            RequestDispatcher rd;
-            
-            if(command.equalsIgnoreCase("login")){
-                rd = request.getRequestDispatcher("/LoginController");
-                request.setAttribute("usuario", request.getParameter("username"));
-                request.setAttribute("senha", request.getParameter("password"));
-                rd.forward(request, response);
-            }
-            else if(command.equalsIgnoreCase("cadastro")){
-                rd = request.getRequestDispatcher("/UsuarioController");
-                request.setAttribute("nome", request.getParameter("nome"));
-                request.setAttribute("usuario", request.getParameter("usuario"));
-                request.setAttribute("senha", request.getParameter("senha"));
-                request.setAttribute("email", request.getParameter("email"));
-                request.setAttribute("tipo", "inserir");
-                
-                
-                rd.forward(request, response);
-            }
-            else if(command.equalsIgnoreCase("escolhamarvel")){
-                rd = request.getRequestDispatcher("/MarvelController");
-                request.setAttribute("nome", request.getParameter("nomemarvel"));
-                rd.forward(request, response);
-            }
-            
-            
-            
-        
+
+        RequestDispatcher rd;
+
+        if (command.equalsIgnoreCase("login")) {
+            rd = request.getRequestDispatcher("/LoginController");
+            request.setAttribute("usuario", request.getParameter("username"));
+            request.setAttribute("senha", request.getParameter("password"));
+            rd.forward(request, response);
+        } else if (command.equalsIgnoreCase("cadastro")) {
+            rd = request.getRequestDispatcher("/UsuarioController");
+            request.setAttribute("nome", request.getParameter("nome"));
+            request.setAttribute("usuario", request.getParameter("usuario"));
+            request.setAttribute("senha", request.getParameter("senha"));
+            request.setAttribute("email", request.getParameter("email"));
+            request.setAttribute("tipo", "inserir");
+
+            rd.forward(request, response);
+        } else if (command.equalsIgnoreCase("escolhamarvel")) {
+            rd = request.getRequestDispatcher("/MarvelController");
+            request.setAttribute("nome", request.getParameter("nomemarvel"));
+            rd.forward(request, response);
+        } else if (command.equalsIgnoreCase("editarhistoria")) {
+            rd = request.getRequestDispatcher("/HistoriaController");
+            request.setAttribute("historia", request.getParameter("historia"));
+            request.setAttribute("roteiro", request.getParameter("roteiro"));
+            rd.forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -93,7 +85,6 @@ public class FrontController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        
         command = request.getParameter("command");
         processRequest(request, response);
     }

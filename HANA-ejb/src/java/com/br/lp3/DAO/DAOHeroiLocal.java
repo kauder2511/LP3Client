@@ -1,4 +1,3 @@
-
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Heroi;
@@ -14,13 +13,11 @@ import javax.ejb.Local;
 public interface DAOHeroiLocal {
 
     void inserir(Heroi heroi);
-    
+
     List<Heroi> read();
 
     void update(Heroi heroi);
 
     void delete(int id_heroi);
 
-    
-    
 }

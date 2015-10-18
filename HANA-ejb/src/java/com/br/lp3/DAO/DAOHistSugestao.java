@@ -1,4 +1,3 @@
-
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Histsugestao;
@@ -23,20 +22,20 @@ public class DAOHistSugestao implements DAOHistSugestaoLocal {
     @Override
     public void inserir(Histsugestao histSugestao) {
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Histsugestao");
             servico.insert(histSugestao);
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHistSugestao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     @Override
     public List<Histsugestao> read() {
         List<Histsugestao> lista = new ArrayList<>();
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Histsugestao");
             lista = servico.readList();
         } catch (RemoteException | NotBoundException ex) {
@@ -48,7 +47,7 @@ public class DAOHistSugestao implements DAOHistSugestaoLocal {
     @Override
     public void update(Histsugestao histSugestao) {
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Histsugestao");
             servico.update(histSugestao);
         } catch (RemoteException | NotBoundException ex) {
@@ -59,7 +58,7 @@ public class DAOHistSugestao implements DAOHistSugestaoLocal {
     @Override
     public void delete(int id_histSugestao) {
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Histsugestao");
             servico.delete(id_histSugestao);
         } catch (RemoteException | NotBoundException ex) {
@@ -67,5 +66,4 @@ public class DAOHistSugestao implements DAOHistSugestaoLocal {
         }
     }
 
-    
 }

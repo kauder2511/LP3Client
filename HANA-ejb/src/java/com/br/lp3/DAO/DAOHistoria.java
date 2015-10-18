@@ -1,4 +1,3 @@
-
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Historia;
@@ -16,18 +15,17 @@ import javax.ejb.Stateless;
  * @author William Cisang (31441564)
  * @author Raquel Gallo (31458521)
  */
-
 @Stateless
 public class DAOHistoria implements DAOHistoriaLocal {
 
     @Override
     public void inserir(Historia h) {
-        
+
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Historia");
             servico.insert(h);
-            
+
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHistoria.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -40,7 +38,7 @@ public class DAOHistoria implements DAOHistoriaLocal {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Historia");
             lista = servico.readList();
-            
+
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHistoria.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -49,11 +47,11 @@ public class DAOHistoria implements DAOHistoriaLocal {
 
     @Override
     public void update(Historia historia) {
-         try {
+        try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Historia");
             servico.update(historia);
-            
+
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHistoria.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -65,14 +63,10 @@ public class DAOHistoria implements DAOHistoriaLocal {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Historia");
             servico.delete(id);
-            
+
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHistoria.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
 
-    
 }

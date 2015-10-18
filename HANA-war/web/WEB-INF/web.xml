@@ -16,6 +16,10 @@
         <servlet-name>MarvelController</servlet-name>
         <servlet-class>com.br.lp3.controller.MarvelController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HistoriaController</servlet-name>
+        <servlet-class>com.br.lp3.controller.HistoriaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>MarvelController</servlet-name>
         <url-pattern>/MarvelController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoriaController</servlet-name>
+        <url-pattern>/HistoriaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

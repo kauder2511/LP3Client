@@ -1,4 +1,3 @@
-
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Histsugestao;
@@ -10,7 +9,6 @@ import javax.ejb.Local;
  * @author William Cisang (31441564)
  * @author Raquel Gallo (31458521)
  */
-
 @Local
 public interface DAOHistSugestaoLocal {
 
@@ -21,5 +19,5 @@ public interface DAOHistSugestaoLocal {
     void update(Histsugestao histSugestao);
 
     void delete(int id_histSugestao);
-    
+
 }

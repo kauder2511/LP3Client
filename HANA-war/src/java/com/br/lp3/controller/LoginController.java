@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.br.lp3.controller;
 
 import com.br.lp3.DAO.DAOHeroiLocal;
@@ -10,21 +5,14 @@ import com.br.lp3.DAO.DAOHeroimarvelLocal;
 import com.br.lp3.DAO.DAOHistoriaLocal;
 import com.br.lp3.DAO.DAOManagerLocal;
 import com.br.lp3.entities.Usuario;
-import com.br.lp3.DAO.DAOUser;
 import com.br.lp3.entities.Heroi;
 import com.br.lp3.entities.Heroimarvel;
 import com.br.lp3.entities.Historia;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,9 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Raquel
+ * @author Raquel Gallo (31458521)
+ * @author William Cisang (31441564)
  */
 public class LoginController extends HttpServlet {
+
     @EJB
     private DAOHistoriaLocal dAOHistoria;
     @EJB
@@ -47,9 +37,6 @@ public class LoginController extends HttpServlet {
 
     @EJB
     private DAOManagerLocal dAOUser;
-    
-    
-    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -79,7 +66,7 @@ public class LoginController extends HttpServlet {
                 rd = request.getRequestDispatcher("/TelaInicial.jsp");
                 rd.forward(request, response);
             }
-            
+
             rd = request.getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
 
@@ -108,33 +95,35 @@ public class LoginController extends HttpServlet {
 
     }
 
-    private Heroi buscaHeroi(Usuario user){
+    private Heroi buscaHeroi(Usuario user) {
         List<Heroi> lista = dAOHeroi.read();
         for (Heroi her : lista) {
-            if(Objects.equals(her.getIdUser().getIdUsuario(), user.getIdUsuario())){
+            if (Objects.equals(her.getIdUser().getIdUsuario(), user.getIdUsuario())) {
                 return her;
             }
         }
-        
+
         return null;
     }
-    
-    private List<Heroi> buscalistaheroi(){
+
+    private List<Heroi> buscalistaheroi() {
         return dAOHeroi.read();
     }
-    
-    private List<Historia> buscaHistoria(Heroi heroi){
+
+    private List<Historia> buscaHistoria(Heroi heroi) {
         List<Historia> lista = dAOHistoria.readList();
         List<Historia> listahistoria = new ArrayList<>();
         for (Historia hist : lista) {
-            if((Objects.equals(hist.getIdheroi().getIdHeroi(), heroi.getIdHeroi())) && 
-                    ((hist.getRoteiro() == 1) || (hist.getRoteiro() == 2) || (hist.getRoteiro() == 3))){
+            if ((Objects.equals(hist.getIdheroi().getIdHeroi(), heroi.getIdHeroi()))
+                    && ((hist.getRoteiro() == 1) || (hist.getRoteiro() == 2) || (hist.getRoteiro() == 3))) {
                 listahistoria.add(hist);
             }
         }
         return listahistoria;
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *

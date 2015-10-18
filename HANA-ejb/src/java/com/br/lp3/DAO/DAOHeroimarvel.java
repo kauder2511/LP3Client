@@ -1,4 +1,3 @@
-
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Heroimarvel;
@@ -17,14 +16,13 @@ import javax.ejb.Stateless;
  * @author Raquel Gallo (31458521)
  * @author William Cisang (31441564)
  */
-
 @Stateless
 public class DAOHeroimarvel implements DAOHeroimarvelLocal {
 
     @Override
     public void inserir(Heroimarvel heroiMarvel) {
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Heroimarvel");
             servico.insert(heroiMarvel);
         } catch (RemoteException | NotBoundException ex) {
@@ -36,21 +34,21 @@ public class DAOHeroimarvel implements DAOHeroimarvelLocal {
     public List<Heroimarvel> read() {
         List<Heroimarvel> lista = new ArrayList<>();
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Heroimarvel");
             lista = servico.readList();
-                    
+
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHeroimarvel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return lista;
     }
 
     @Override
     public void update(Heroimarvel heroiMarvel) {
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Heroimarvel");
             servico.update(heroiMarvel);
         } catch (RemoteException | NotBoundException ex) {
@@ -61,16 +59,13 @@ public class DAOHeroimarvel implements DAOHeroimarvelLocal {
     @Override
     public void delete(int id_heroimar) {
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Heroimarvel");
             servico.delete(id_heroimar);
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHeroimarvel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
-    
-
-    
 }

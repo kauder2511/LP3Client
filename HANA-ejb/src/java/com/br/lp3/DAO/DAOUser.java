@@ -1,4 +1,3 @@
-
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Usuario;
@@ -16,41 +15,34 @@ import javax.ejb.Stateless;
  * @author Raquel Gallo (31458521)
  * @author William Cisang (31441564)
  */
-
 @Stateless
 public class DAOUser implements DAOManagerLocal {
 
     @Override
-    public boolean verificaLogin(Usuario u ) {
-        
+    public boolean verificaLogin(Usuario u) {
+
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Usuario");
             List<Usuario> lista = servico.readList();
             for (Usuario user : lista) {
-                if(user.getLogin().equalsIgnoreCase(u.getLogin()) && user.getSenha().equalsIgnoreCase(u.getSenha())){
+                if (user.getLogin().equalsIgnoreCase(u.getLogin()) && user.getSenha().equalsIgnoreCase(u.getSenha())) {
                     return true;
                 }
             }
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return false;
-        
+
     }
-    
-    
-    
-    
-    
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
-
     @Override
     public void inserir(Usuario u) {
-        
+
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Usuario");
@@ -75,17 +67,16 @@ public class DAOUser implements DAOManagerLocal {
 
     @Override
     public void update(Usuario u) {
-        
+
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Usuario");
-            
+
             servico.update(u);
-        } catch (RemoteException | NotBoundException  ex) {
+        } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
 
     @Override
@@ -94,14 +85,9 @@ public class DAOUser implements DAOManagerLocal {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Usuario");
             servico.delete(id);
-        } catch (RemoteException | NotBoundException  ex) {
+        } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
-    
-    
-    
+
 }

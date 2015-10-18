@@ -1,14 +1,13 @@
 package com.br.lp3.controller;
 
-import com.br.lp3.DAO.DAOHeroiLocal;
-import com.br.lp3.DAO.DAOHeroimarvelLocal;
+import com.br.lp3.DAO.DAOHistoriaLocal;
 import com.br.lp3.entities.Heroi;
-import com.br.lp3.entities.Heroimarvel;
-import com.br.lp3.entities.Usuario;
+import com.br.lp3.entities.Historia;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+import java.util.Objects;
 import javax.ejb.EJB;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,16 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author William Cisang (31441564)
  * @author Raquel Gallo (31458521)
+ * @author William Cisang (31441564)
  */
-public class MarvelController extends HttpServlet {
+public class HistoriaController extends HttpServlet {
 
     @EJB
-    private DAOHeroiLocal dAOHeroi;
-    @EJB
-    private DAOHeroimarvelLocal dAOHeroimarvel;
-    private RequestDispatcher rd;
+    private DAOHistoriaLocal dAOHistoria;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,25 +35,33 @@ public class MarvelController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
 
-        /* TODO output your page here. You may use following sample code. */
-        String nomemarvel = request.getAttribute("nome").toString();
-        Usuario u = (Usuario) request.getSession().getAttribute("Usuario");
-        Heroimarvel marvel = new Heroimarvel();
-        marvel.setNomeHeroimar(nomemarvel);
-        //Conexão webService para pegar historia
-        marvel.setHistoria(null);
-        marvel.setIdUsermarvel(u);
-        dAOHeroimarvel.inserir(marvel);
-        request.getSession().setAttribute("Heroimarvel", marvel);
-        request.getSession().setAttribute("Listaheroi", buscalistaheroi());
-        rd = request.getRequestDispatcher("/TelaInicial.jsp");
-        rd.forward(request, response);
+            Heroi heroi = (Heroi) request.getSession().getAttribute("Heroi");
+            request.getSession().setAttribute("hist", buscaHistoria(heroi));
+            Historia h = (Historia) request.getSession().getAttribute("hist");
 
+            String historia = request.getAttribute("historia").toString();
+            int roteiro = Integer.parseInt(request.getAttribute("roteiro").toString());
+            Historia hist = new Historia();
+            hist.setHistoria(historia);
+            hist.setRoteiro(roteiro);
+            hist.setIdHistoria(h.getIdHistoria());
+            hist.setIdheroi(h.getIdheroi());
+            dAOHistoria.update(hist);
+        }
     }
 
-    private List<Heroi> buscalistaheroi() {
-        return dAOHeroi.read();
+    private Historia buscaHistoria(Heroi heroi) {
+        List<Historia> lista = dAOHistoria.readList();
+        for (Historia his : lista) {
+            if (Objects.equals(his.getIdheroi().getIdHeroi(), heroi.getIdHeroi())) {
+                return his;
+            }
+        }
+
+        return null;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,4 +1,3 @@
-
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Vestimenta;
@@ -17,14 +16,13 @@ import javax.ejb.Stateless;
  * @author Raquel Gallo (31458521)
  * @author William Cisang (31441564)
  */
-
 @Stateless
 public class DAOVestimenta implements DAOVestimentaLocal {
 
     @Override
     public void inserir(Vestimenta vestimenta) {
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Vestimenta");
             servico.insert(vestimenta);
         } catch (RemoteException | NotBoundException ex) {
@@ -36,20 +34,20 @@ public class DAOVestimenta implements DAOVestimentaLocal {
     public List<Vestimenta> read() {
         List<Vestimenta> lista = new ArrayList<>();
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Vestimenta");
             lista = servico.readList();
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOVestimenta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return lista;
     }
 
     @Override
     public void update(Vestimenta vestimenta) {
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Vestimenta");
             servico.update(vestimenta);
         } catch (RemoteException | NotBoundException ex) {
@@ -60,7 +58,7 @@ public class DAOVestimenta implements DAOVestimentaLocal {
     @Override
     public void delete(int id_vestimenta) {
         try {
-            Registry registro = LocateRegistry.getRegistry("localhost",1099);
+            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Vestimenta");
             servico.delete(id_vestimenta);
         } catch (RemoteException | NotBoundException ex) {
@@ -68,5 +66,4 @@ public class DAOVestimenta implements DAOVestimentaLocal {
         }
     }
 
-    
 }

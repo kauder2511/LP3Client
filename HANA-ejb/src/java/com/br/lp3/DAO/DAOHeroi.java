@@ -1,4 +1,3 @@
-
 package com.br.lp3.DAO;
 
 import com.br.lp3.entities.Heroi;
@@ -17,7 +16,6 @@ import javax.ejb.Stateless;
  * @author Raquel Gallo (31458521)
  * @author William Cisang (31441564)
  */
-
 @Stateless
 public class DAOHeroi implements DAOHeroiLocal {
 
@@ -26,7 +24,7 @@ public class DAOHeroi implements DAOHeroiLocal {
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Heroi");
-            
+
             servico.insert(heroi);
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHeroi.class.getName()).log(Level.SEVERE, null, ex);
@@ -52,7 +50,7 @@ public class DAOHeroi implements DAOHeroiLocal {
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Heroi");
-            
+
             servico.update(heroi);
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHeroi.class.getName()).log(Level.SEVERE, null, ex);

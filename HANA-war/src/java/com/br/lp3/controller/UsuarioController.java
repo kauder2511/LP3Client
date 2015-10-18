@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.br.lp3.controller;
 
 import com.br.lp3.DAO.DAOManagerLocal;
@@ -18,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author william
+ * @author William Cisang (31441564)
+ * @author Raquel Gallo (31458521)
  */
 public class UsuarioController extends HttpServlet {
 

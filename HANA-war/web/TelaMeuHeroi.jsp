@@ -36,64 +36,13 @@
 
     <body>
         <!-- header -->
-        <div class="top-banner">
-            <!--banner-info-->
-            <div class="banner-info">
-                <div class="container">
-                    <div class="logo">
-                        <a href="TelaInicial.jsp"><img src="images/logoHANA.jpg" style="width: 250px"/></a>
-                    </div>
-                    <div class="top-menu">
-                        <span class="menu"></span>
-                        <ul class="nav1">
-                            <li>
-                                <a href="TelaInicial.jsp">
-                                    <i class="glyphicon glyphicon-home"></i>
-                                    &nbsp; Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="TelaAbout.jsp"><i class="glyphicon glyphicon-exclamation-sign"></i>
-                                    &nbsp; About
-                                </a>
-                            </li>
-                            <li>
-                                <a href="TelaReviews.jsp">${heroi.getNomeHeroimar()}</a>
-                            </li>
-                            <li class="active">
-                                <a href="TelaMeuHeroi.jsp">Meu Herói</a>
-                            </li>
-                            <li>
-                                <a href="TelaGallery.jsp">
-                                    &nbsp; Gallery
-                                </a>
-                            </li>
-                            <li>
-                                <a href="TelaContact.jsp"><i class="glyphicon glyphicon-envelope"></i>
-                                    &nbsp; Mail
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- script-for-menu -->
-                    <script>
-                        $("span.menu").click(function () {
-                            $("ul.nav1").slideToggle(300, function () {
-                                // Animation complete.
-                            });
-                        });
-                    </script>
-                    <!-- /script-for-menu -->
-                    <div class="clearfix"></div>
+        <c:import url="menu.jsp"></c:import>
+            <!-- banner -->
+            <div class="banner">
+                <div class="bnr2">
                 </div>
             </div>
-        </div>
-        <!-- banner -->
-        <div class="banner">
-            <div class="bnr2">
-            </div>
-        </div>
-        <!--pages-starts-->
+            <!--pages-starts-->
         <c:choose>
             <c:when test="${meuheroi != null}">
                 <p class="pMeuHeroi">${meuheroi.getNomeHeroi()}</p>
@@ -153,52 +102,7 @@
             </c:otherwise>
         </c:choose>
         <!--pages-ends-->
-        <!-- footer -->
-        <div class="footer">
-            <div class="container">
-                <div class="footer-grids">
-                    <div class="col-md-3 ftr-info">
-                        <h3>About Us</h3>
-                        <p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
-                    </div>
-                    <div class="col-md-3 ftr-grid">
-                        <h3>Categories</h3>
-                        <ul class="ftr-list">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Racing</a></li>
-                            <li><a href="#">Adventure</a></li>
-                            <li><a href="#">Simulation</a></li>
-                            <li><a href="#">Bike</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 ftr-grid">
-                        <h3>Platform</h3>
-                        <ul class="ftr-list">
-                            <li><a href="#">Pc</a></li>
-                            <li><a href="#">Ps4</a></li>
-                            <li><a href="#">XBOX 360</a></li>
-                            <li><a href="#">XBOX ONE</a></li>
-                            <li><a href="#">PSP</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 ftr-grid">
-                        <h3>Information</h3>
-                        <ul class="ftr-list">
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Wish Lists</a></li>
-                            <li><a href="#">Site Map</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-        <!---->
-        <div class="copywrite">
-            <div class="container">
-                <p> © 2015 Game Box. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-            </div>
-        </div>
+        <!--footer-->
+        <c:import url="footer.jsp"></c:import>
     </body>
 </html>
