@@ -14,10 +14,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Page style with bootstrap -->
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.min.css" rel='stylesheet' type='text/css' />
         <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
         <link href="css/style_inicial.css" rel='stylesheet' type='text/css' />
         <!-- Javascript with bootstrap and jQuery -->
         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery_hana.js"></script>
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script type="application/x-javascript">
@@ -31,8 +35,8 @@
         </script>
 
         <title>Meu Herói</title>
-        <c:set var="heroi" value="${pageContext.session.getAttribute('Heroimarvel')}"/>
-        <c:set var="hist" value="${pageContext.session.getAttribute('Historia')}"/>
+        <c:set var="heroi" value="${pageContext.session.getAttribute('Heroi')}"/>
+        <c:set var="hist" value="${pageContext.session.getAttribute('Listahistoria')}"/>
     </head>
 
     <body>
@@ -44,27 +48,27 @@
                 </div>
             </div>
             <!--pages-starts-->
-            <h2 class="h2Titles">Editar história de ${heroi.getNomeHeroimar()}</h2>
+            <h2 class="h2Titles">Editar história de ${heroi.getNomeHeroi()}</h2>
         <form action="FrontController" method="POST">
-            <div id="abas" class="container-fluid">
-                <h3>Introdução</h3>
-                <div>
-                    <textarea class="form-control" type="text" name="historia" rows="4">${hist.getHistoria()}</textarea>
+            <div class="ui container">
+                <div id="abas">
+                    <h3>Introdução</h3>
+                    <div>
+                        <textarea name="historia" type="text" rows="4" cols="115">${hist.get(0).getHistoria()}</textarea>
+                    </div>
+                    <h3>Meio</h3>
+                    <div>
+                        <textarea name="historia" type="text" rows="4" cols="115">${hist.get(1).getHistoria()}</textarea>
+                    </div>
+                    <h3>Conclusão</h3>
+                    <div>
+                        <textarea name="historia" type="text" rows="4" cols="115">${hist.get(2).getHistoria()}</textarea>
+                    </div>
                 </div>
-                <h3>Meio</h3>
-                <input type="button" >
-                <div>
-                    <textarea class="form-control" type="text" name="historia" rows="4">${hist.getHistoria()}</textarea>
-                </div>
-                <h3>Conclusão</h3>
-                <div>
-                    <textarea class="form-control" type="text" name="historia" rows="4">${hist.getHistoria()}</textarea>
-                </div>
+
+                <input class="btn btn-primary btn-block" type="submit" value="Editar"/>
+                <input type="hidden" name="command" value="editarhistoria"/>
             </div>
-
-
-            <input class="btn btn-primary btn-block" type="submit" value="Editar"/>
-            <input type="hidden" name="command" value="editarhistoria"/>
         </form>
 
         <!--pages-ends-->

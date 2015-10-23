@@ -52,7 +52,6 @@ public class FrontController extends HttpServlet {
         } else if (command.equalsIgnoreCase("editarhistoria")) {
             rd = request.getRequestDispatcher("/HistoriaController");
             request.setAttribute("historia", request.getParameter("historia"));
-            request.setAttribute("roteiro", request.getParameter("roteiro"));
             rd.forward(request, response);
         }
 
