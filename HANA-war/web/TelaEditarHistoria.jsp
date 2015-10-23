@@ -18,6 +18,7 @@
         <link href="css/style_inicial.css" rel='stylesheet' type='text/css' />
         <!-- Javascript with bootstrap and jQuery -->
         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script type="application/x-javascript">
             addEventListener("load", function() {
@@ -45,16 +46,23 @@
             <!--pages-starts-->
             <h2 class="h2Titles">Editar história de ${heroi.getNomeHeroimar()}</h2>
         <form action="FrontController" method="POST">
-            <label class="checkbox-inline">
-                <input class="" type="radio" name="roteiro" value="1" checked /> Introdução
-            </label>
-            <label class="checkbox-inline">
-                <input type="radio" name="roteiro" value="2" /> Meio
-            </label>
-            <label class="checkbox-inline">
-                <input type="radio" name="roteiro" value="3" /> Conclusão
-            </label>
-            <textarea class="form-control" type="text" name="historia" rows="4">${hist.getHistoria()}</textarea>
+            <div id="abas" class="container-fluid">
+                <h3>Introdução</h3>
+                <div>
+                    <textarea class="form-control" type="text" name="historia" rows="4">${hist.getHistoria()}</textarea>
+                </div>
+                <h3>Meio</h3>
+                <input type="button" >
+                <div>
+                    <textarea class="form-control" type="text" name="historia" rows="4">${hist.getHistoria()}</textarea>
+                </div>
+                <h3>Conclusão</h3>
+                <div>
+                    <textarea class="form-control" type="text" name="historia" rows="4">${hist.getHistoria()}</textarea>
+                </div>
+            </div>
+
+
             <input class="btn btn-primary btn-block" type="submit" value="Editar"/>
             <input type="hidden" name="command" value="editarhistoria"/>
         </form>
