@@ -5,6 +5,8 @@
  */
 package com.br.lp3.sessionbeans;
 
+import com.br.lp3.entities.Heroimarvel;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,5 +15,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface MarvelManagerLocal {
+    
+    public List<Heroimarvel> searchCharacterByName(String name);
     
 }

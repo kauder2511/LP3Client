@@ -4,7 +4,7 @@
     Author     : William Cisang (31441564)
     Author     : Raquel Gallo (31458521)
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -68,6 +68,9 @@
         </div>
         <div class='form animated bounceIn'>
             <h2>Digite o nome de seu herói</h2>
+            <c:if test="${pageContext.session.getAttribute('heroivalido')!=null}">
+                <span style="color: red">Este herói não existe na MARVEL</span>
+            </c:if>
             <form action="FrontController" method="POST">
                 <input placeholder='Nome' type='text' name="nomemarvel"/>
                 <input type="hidden" name="command" value="escolhamarvel"/>

@@ -5,6 +5,7 @@
  */
 package com.br.lp3.sessionbeans;
 
+import com.br.lp3.Json.HeroiMarvelJsonParser;
 import com.br.lp3.entities.Heroimarvel;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,7 +33,8 @@ public class MarvelManager implements MarvelManagerLocal {
     private static String urlbase = "http://gateway.marvel.com:80";
     private static String urlCharacter = "/v1/public/characters";
 
-    public static List<Heroimarvel> searchCharacterByName(String name) {
+    @Override
+    public List<Heroimarvel> searchCharacterByName(String name) {
         List<Heroimarvel> chars = new ArrayList<>();
         //Passo 1 - Construção da URL
         //Passo 1 (a) - geração do timestamp
@@ -67,7 +69,7 @@ public class MarvelManager implements MarvelManagerLocal {
 
 
             String str = sb.toString();
-            chars = MarvelCharacterJSONParser.parseFeed(str);
+            chars = HeroiMarvelJsonParser.parseFeed(str);
 
         } catch (MalformedURLException ex) {
             Logger.getLogger(MarvelManager.class.getName()).log(Level.SEVERE, null, ex);

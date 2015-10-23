@@ -5,6 +5,7 @@ import com.br.lp3.DAO.DAOHeroimarvelLocal;
 import com.br.lp3.entities.Heroi;
 import com.br.lp3.entities.Heroimarvel;
 import com.br.lp3.entities.Usuario;
+import com.br.lp3.sessionbeans.MarvelManagerLocal;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
@@ -20,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author Raquel Gallo (31458521)
  */
 public class MarvelController extends HttpServlet {
+    @EJB
+    private MarvelManagerLocal marvelManager;
 
     @EJB
     private DAOHeroiLocal dAOHeroi;
@@ -44,9 +47,15 @@ public class MarvelController extends HttpServlet {
         String nomemarvel = request.getAttribute("nome").toString();
         Usuario u = (Usuario) request.getSession().getAttribute("Usuario");
         Heroimarvel marvel = new Heroimarvel();
-        marvel.setNomeHeroimar(nomemarvel);
         //Conexão webService para pegar historia
-        marvel.setHistoria(null);
+        List<Heroimarvel> list = marvelManager.searchCharacterByName(nomemarvel);
+        if(list.get(0) == null){
+            request.getSession().setAttribute("heroivalido", false);
+            rd = request.getRequestDispatcher("/TelaEscolhaMarvel.jsp");
+            rd.forward(request, response);
+        }
+        marvel.setHistoria(list.get(0).getHistoria());
+        marvel.setNomeHeroimar(list.get(0).getNomeHeroimar());
         marvel.setIdUsermarvel(u);
         dAOHeroimarvel.inserir(marvel);
         request.getSession().setAttribute("Heroimarvel", marvel);

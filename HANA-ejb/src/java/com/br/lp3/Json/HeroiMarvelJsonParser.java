@@ -37,13 +37,15 @@ public class HeroiMarvelJsonParser {
         
         for (int i = 0; i < results.size(); i++) {
             JsonObject p = results.getJsonObject(i);
-            int id = p.getInt("id");
+            
             String name = p.getString("name");
             String desc = p.getString("description");
             
             JsonObject thumbnail = p.getJsonObject("thumbnail");
             String thumb = thumbnail.getString("path")+"."+thumbnail.getString("extension");
-            Heroimarvel mc = new Heroimarvel(id, name, desc, thumb);
+            Heroimarvel mc = new Heroimarvel();
+            mc.setHistoria(desc);
+            mc.setNomeHeroimar(name);
             chars.add(mc);
         }
                 
