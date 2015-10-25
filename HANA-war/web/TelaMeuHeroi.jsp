@@ -13,10 +13,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Page style with bootstrap -->
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.min.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.theme.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.theme.min.css" rel='stylesheet' type='text/css' />
         <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
+        <link href="css/style-facaHeroi.css" rel='stylesheet' type='text/css' />
         <link href="css/style_inicial.css" rel='stylesheet' type='text/css' />
         <!-- Javascript with bootstrap and jQuery -->
         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script type="application/x-javascript">
             addEventListener("load", function() {
@@ -85,20 +92,7 @@
                 </div>
             </c:when>
             <c:otherwise>
-                <p class="pMeuHeroi">Faça seu Heroi</p>
-                <div class="container-all">
-                    <div class="row">
-                        <div class="col-md-4">
-                            ....
-                        </div>
-                        <div class="col-md-4">
-                            .....
-                        </div>
-                        <div class="col-md-4">
-                            .....
-                        </div>
-                    </div>
-                </div>
+                <c:import url="TelaMeuHeroiFacaOSeu.jsp"></c:import>
             </c:otherwise>
         </c:choose>
         <!--pages-ends-->

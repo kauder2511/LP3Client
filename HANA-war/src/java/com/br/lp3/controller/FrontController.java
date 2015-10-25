@@ -23,7 +23,8 @@ public class FrontController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    String command;
+    String command, imagem;
+    int tipo,id;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -53,6 +54,17 @@ public class FrontController extends HttpServlet {
             rd = request.getRequestDispatcher("/HistoriaController");
             request.setAttribute("historia", request.getParameter("historia"));
             rd.forward(request, response);
+        }else if (command.equals("imagemPersonagem")){
+            rd = request.getRequestDispatcher("TelaMeuHeroi.jsp");
+            if(tipo == 1){
+                request.getSession().setAttribute("cabeca", id);
+                request.getSession().setAttribute("imagemCabeca", imagem);
+            }else{
+                request.getSession().setAttribute("corpo", id);
+                request.getSession().setAttribute("imagemCorpo", imagem);
+            }
+            rd.forward(request, response);
+            
         }
 
     }
@@ -69,6 +81,10 @@ public class FrontController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        id = Integer.parseInt(request.getParameter("id"));
+        tipo = Integer.parseInt(request.getParameter("tipo"));
+        imagem = request.getParameter("vest").toString();
+        command = "imagemPersonagem";
         processRequest(request, response);
     }
 

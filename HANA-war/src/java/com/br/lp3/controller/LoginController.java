@@ -4,10 +4,12 @@ import com.br.lp3.DAO.DAOHeroiLocal;
 import com.br.lp3.DAO.DAOHeroimarvelLocal;
 import com.br.lp3.DAO.DAOHistoriaLocal;
 import com.br.lp3.DAO.DAOManagerLocal;
+import com.br.lp3.DAO.DAOVestimentaLocal;
 import com.br.lp3.entities.Usuario;
 import com.br.lp3.entities.Heroi;
 import com.br.lp3.entities.Heroimarvel;
 import com.br.lp3.entities.Historia;
+import com.br.lp3.entities.Vestimenta;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -26,6 +28,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author William Cisang (31441564)
  */
 public class LoginController extends HttpServlet {
+
+    @EJB
+    private DAOVestimentaLocal dAOVestimenta;
 
     @EJB
     private DAOHistoriaLocal dAOHistoria;
@@ -63,6 +68,7 @@ public class LoginController extends HttpServlet {
                 request.getSession().setAttribute("Heroi", buscaHeroi(user));
                 request.getSession().setAttribute("Listaheroi", buscalistaheroi());
                 request.getSession().setAttribute("Listahistoria", buscaHistoria(buscaHeroi(user)));
+                request.getSession().setAttribute("ListaVestimenta", buscaVestimenta());
                 rd = request.getRequestDispatcher("/TelaInicial.jsp");
                 rd.forward(request, response);
             }
@@ -113,7 +119,7 @@ public class LoginController extends HttpServlet {
     private List<Historia> buscaHistoria(Heroi heroi) {
         List<Historia> lista = dAOHistoria.readList();
         List<Historia> listahistoria = new ArrayList<>();
-        if(heroi == null){
+        if (heroi == null) {
             return null;
         }
         for (Historia hist : lista) {
@@ -125,8 +131,12 @@ public class LoginController extends HttpServlet {
         return listahistoria;
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    public List<Vestimenta> buscaVestimenta() {
+        List<Vestimenta>lista = dAOVestimenta.read();
+        return lista;
+    }
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

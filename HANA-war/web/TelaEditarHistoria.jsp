@@ -52,15 +52,15 @@
         <form action="FrontController" method="POST">
             <div class="ui container">
                 <div id="abas">
-                    <h3>Introdução</h3>
+                    <h3 class="h3A">Introdução</h3>
                     <div>
                         <textarea name="historia" type="text" rows="4" cols="115">${hist.get(0).getHistoria()}</textarea>
                     </div>
-                    <h3>Meio</h3>
+                    <h3 class="h3A">Meio</h3>
                     <div>
                         <textarea name="historia" type="text" rows="4" cols="115">${hist.get(1).getHistoria()}</textarea>
                     </div>
-                    <h3>Conclusão</h3>
+                    <h3 class="h3A">Conclusão</h3>
                     <div>
                         <textarea name="historia" type="text" rows="4" cols="115">${hist.get(2).getHistoria()}</textarea>
                     </div>
