@@ -20,9 +20,9 @@
         <script type="application/x-javascript"> addEventListener("load", function() { 
             setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
         </script>
-
-        <title>Gallery</title>
         <c:set var="heroi" value="${pageContext.session.getAttribute('Heroimarvel')}"/>
+        <title>Gallery</title>
+
     </head>
 
     <body>
@@ -34,6 +34,7 @@
                 </div>
             </div>
             <!---->
+            
             <div class="gallery">
                 <div class="container">
                     <h2>Gallery</h2>

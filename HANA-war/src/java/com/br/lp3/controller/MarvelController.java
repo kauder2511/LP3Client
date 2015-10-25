@@ -57,6 +57,7 @@ public class MarvelController extends HttpServlet {
         marvel.setHistoria(list.get(0).getHistoria());
         marvel.setNomeHeroimar(list.get(0).getNomeHeroimar());
         marvel.setIdUsermarvel(u);
+        marvel.setImage(list.get(0).getImage());
         dAOHeroimarvel.inserir(marvel);
         request.getSession().setAttribute("Heroimarvel", marvel);
         request.getSession().setAttribute("Listaheroi", buscalistaheroi());

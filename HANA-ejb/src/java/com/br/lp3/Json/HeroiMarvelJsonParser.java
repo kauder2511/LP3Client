@@ -44,6 +44,7 @@ public class HeroiMarvelJsonParser {
             JsonObject thumbnail = p.getJsonObject("thumbnail");
             String thumb = thumbnail.getString("path")+"."+thumbnail.getString("extension");
             Heroimarvel mc = new Heroimarvel();
+            mc.setImage(thumb);
             mc.setHistoria(desc);
             mc.setNomeHeroimar(name);
             chars.add(mc);

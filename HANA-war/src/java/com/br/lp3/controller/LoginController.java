@@ -113,6 +113,9 @@ public class LoginController extends HttpServlet {
     private List<Historia> buscaHistoria(Heroi heroi) {
         List<Historia> lista = dAOHistoria.readList();
         List<Historia> listahistoria = new ArrayList<>();
+        if(heroi == null){
+            return null;
+        }
         for (Historia hist : lista) {
             if ((Objects.equals(hist.getIdheroi().getIdHeroi(), heroi.getIdHeroi()))
                     && ((hist.getRoteiro() == 1) || (hist.getRoteiro() == 2) || (hist.getRoteiro() == 3))) {
