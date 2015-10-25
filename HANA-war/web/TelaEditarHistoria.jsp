@@ -65,8 +65,8 @@
                         <textarea name="historia" type="text" rows="4" cols="115">${hist.get(2).getHistoria()}</textarea>
                     </div>
                 </div>
-
-                <input class="btn btn-primary btn-block" type="submit" value="Editar"/>
+                <br/>
+                <input class="btn btn-danger btn-block" style="width: 50%;margin-left: 25%;margin-bottom: 20px" type="submit" value="Editar"/>
                 <input type="hidden" name="command" value="editarhistoria"/>
             </div>
         </form>
