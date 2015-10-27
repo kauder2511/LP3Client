@@ -63,6 +63,13 @@ public class LoginController extends HttpServlet {
             RequestDispatcher rd;
             Usuario user = buscaUsuario(login, senha);
             if (user != null) {
+                if(user.getTipoUsuario()==1){
+                    rd = request.getRequestDispatcher("/TelaAdmin.jsp");
+                    request.getSession().setAttribute("Usuario", user);
+                    request.getSession().setAttribute("ListaUser", buscaListaUsers());
+                    
+                    rd.forward(request, response);
+                }
                 request.getSession().setAttribute("Usuario", user);
                 request.getSession().setAttribute("Heroimarvel", buscaMarvel(user));
                 request.getSession().setAttribute("Heroi", buscaHeroi(user));
@@ -79,6 +86,9 @@ public class LoginController extends HttpServlet {
         }
     }
 
+    private List<Usuario> buscaListaUsers(){
+        return dAOUser.readList();
+    }
     private Usuario buscaUsuario(String login, String senha) {
         List<Usuario> lista = dAOUser.readList();
         for (Usuario u : lista) {

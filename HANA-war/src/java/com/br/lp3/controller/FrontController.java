@@ -23,8 +23,8 @@ public class FrontController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    String command, imagem;
-    int tipo,id;
+    String command, imagem, action;
+    int tipo, id, iduser;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -54,17 +54,20 @@ public class FrontController extends HttpServlet {
             rd = request.getRequestDispatcher("/HistoriaController");
             request.setAttribute("historia", request.getParameter("historia"));
             rd.forward(request, response);
-        }else if (command.equals("imagemPersonagem")){
+        } else if (command.equals("imagemPersonagem")) {
             rd = request.getRequestDispatcher("TelaMeuHeroi.jsp");
-            if(tipo == 1){
+            if (tipo == 1) {
                 request.getSession().setAttribute("cabeca", id);
                 request.getSession().setAttribute("imagemCabeca", imagem);
-            }else{
+            } else {
                 request.getSession().setAttribute("corpo", id);
                 request.getSession().setAttribute("imagemCorpo", imagem);
             }
             rd.forward(request, response);
-            
+
+        }else if(command.equals("deleteuser")){
+            rd = request.getRequestDispatcher("/AdminController");
+            rd.forward(request, response);
         }
 
     }
@@ -81,10 +84,22 @@ public class FrontController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        id = Integer.parseInt(request.getParameter("id"));
-        tipo = Integer.parseInt(request.getParameter("tipo"));
-        imagem = request.getParameter("vest").toString();
-        command = "imagemPersonagem";
+        action = request.getParameter("action").toString();
+        if (action != null) {
+            switch(action){
+                case "deleteuser":
+                    command = action;
+                    iduser = Integer.parseInt(request.getParameter("id"));
+                    request.setAttribute("tipoOP", "DeleteUser");
+                    request.setAttribute("id", iduser);
+                    break;
+            }
+        } else {
+            id = Integer.parseInt(request.getParameter("id"));
+            tipo = Integer.parseInt(request.getParameter("tipo"));
+            imagem = request.getParameter("vest").toString();
+            command = "imagemPersonagem";
+        }
         processRequest(request, response);
     }
 
