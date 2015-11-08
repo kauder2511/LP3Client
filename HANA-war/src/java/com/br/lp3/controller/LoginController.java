@@ -67,6 +67,7 @@ public class LoginController extends HttpServlet {
                     rd = request.getRequestDispatcher("/TelaAdmin.jsp");
                     request.getSession().setAttribute("Usuario", user);
                     request.getSession().setAttribute("ListaUser", buscaListaUsers());
+                    request.getSession().setAttribute("ListaHeroi", buscalistaheroi());
                     
                     rd.forward(request, response);
                 }

@@ -6,10 +6,10 @@ $(window).ready(function () {
     });
 
     $('.icon').each(function (i) {
-        var self = this;
+        var self = $(this);
         setTimeout(function () {
             $(self).addClass('shown');
-        }, i * 200);
+        }, i * 500);
     });
 
     $('.icon').on('click', function () {

@@ -47,7 +47,7 @@
                 <div class="info">
                     <div class="tabs" data-tabgroup="tab-group">
                         <div class="active"><a href="#information">Usuários</a></div>
-                        <div><a href="#evaluation">Evaluation</a></div>
+                        <div><a href="#evaluation">Heróis</a></div>
                         <div><a href="#client">Client</a></div>
                         <div><a href="#requeriments">Requeriments</a></div>
                         <div><a href="#files">Files</a></div>
@@ -114,8 +114,52 @@
 
                         </div>
                         <div id="evaluation">
-                            <h2>Heading 2</h2>
-                            <p>Adipisci autem obcaecati velit natus quos beatae explicabo at tempora minima voluptates deserunt eum consectetur reiciendis placeat dolorem repellat in nam asperiores impedit voluptas iure repellendus unde eveniet accusamus ex.</p>
+                           <div id="bodywrap">
+                                <div class="row">
+                                    <div class="large-20 columns">
+                                        <div class="scroll-window-wrapper">
+
+                                            <div class="scroll-window">
+                                                <table class="table table-striped table-hover user-list fixed-header">
+                                                    <thead>
+                                                    <th>
+                                                    <div>Id</div>
+                                                    </th>
+                                                    <th>
+                                                    <div>Heroi</div>
+                                                    </th>
+                                                    <th>
+                                                    <div>Id Usuario</div>
+                                                    </th>                               
+                                                    <th>
+                                                    <div></div>
+                                                    </th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <c:forEach var="h" items="${pageContext.session.getAttribute('ListaHeroi')}">
+
+                                                            <tr>
+                                                                <td>${h.getIdHeroi()}</td>
+                                                                <td>${h.getNomeHeroi()}</td>
+                                                                <td>${h.getIdUser().getIdUsuario()}</td>
+                                                                
+
+                                                                <td class="textRight">
+                                                                    <a href="FrontController?action=edituser&id=${h.getIdHeroi()}" ><button  class="ui primary button tiny">História</button></a>
+                                                                    <a href="FrontController?action=deleteuser&id=${h.getIdHeroi()}" ><button class="ui red button alert tiny">Delete</button></a>
+                                                                </td>
+                                                            </tr>
+
+                                                        </c:forEach>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div id="client">
                             <h2>Heading 3</h2>

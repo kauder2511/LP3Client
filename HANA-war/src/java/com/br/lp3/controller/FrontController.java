@@ -84,7 +84,7 @@ public class FrontController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        action = request.getParameter("action").toString();
+        action = (request.getParameter("action") != null) ? request.getParameter("action") : null;
         if (action != null) {
             switch(action){
                 case "deleteuser":
