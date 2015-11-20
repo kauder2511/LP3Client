@@ -103,7 +103,7 @@
     height: 100%; 
 }
 .editarHist{
-    padding-right: 5%;
+    padding-right: 35%;
     float: right;
     color: #9d9d9d;
     font-size: 18px;
@@ -141,4 +141,15 @@
     padding: 15px;
     color: #E00000;
     font-family: Play-Bold;
+}
+#btnSugestao{
+    float: right;
+    margin-right: 10%;
+}
+.h4Hist{
+    color: #E00000;
+    margin: 35px 40% 35px 40%;
+    font-family: heroesassembleacadital;
+    font-size: 45px;
+    
 }

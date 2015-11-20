@@ -24,6 +24,7 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-ui.js"></script>
         <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery_hana.js"></script>
         <script src="js/bootstrap.js"></script>
         <script type="application/x-javascript">
             addEventListener("load", function() {
@@ -54,13 +55,16 @@
             <c:when test="${meuheroi != null}">
                 <p class="pMeuHeroi">${meuheroi.getNomeHeroi()}</p>
                 <div class="div-container">
-                    <a href="TelaEditarHistoria.jsp">
-                        <span class="editarHist"> Editar
-                            <i class="glyphicon glyphicon-edit editarIcone"></i>
-                        </span>
-                    </a>
-                    <br/>
-                    <button class="btn btn-primary" style="width: 100px;float:right;">História Sugestão</button>
+                    <div class="div-btn" style="float: right;margin-left: 20px;">
+                        <a href="TelaEditarHistoria.jsp">
+                            <span class="editarHist"> Editar
+                                <i class="glyphicon glyphicon-edit editarIcone"></i>
+                            </span>
+                        </a>
+                        <br/>
+                        <br/>
+                        <button class="btn btn-success" id="btnSugestao">História Sugestão</button>
+                    </div>
                     <div class="row">
                         <div class="col-md-6 heroi">
                             <img src="images/cabeca${meuheroi.getIdCapacete().getIdVestimenta()}.png" class="img-responsive imgHeroiCab"/>
