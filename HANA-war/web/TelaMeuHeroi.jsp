@@ -59,6 +59,8 @@
                             <i class="glyphicon glyphicon-edit editarIcone"></i>
                         </span>
                     </a>
+                    <br/>
+                    <button class="btn btn-primary" style="width: 100px;float:right;">História Sugestão</button>
                     <div class="row">
                         <div class="col-md-6 heroi">
                             <img src="images/cabeca${meuheroi.getIdCapacete().getIdVestimenta()}.png" class="img-responsive imgHeroiCab"/>

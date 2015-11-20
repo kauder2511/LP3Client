@@ -46,6 +46,11 @@
                             &nbsp; Mail
                         </a>
                     </li>
+                    <li>
+                        <a href="TelaContact.jsp">
+                            &nbsp; Logout
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- script-for-menu -->
