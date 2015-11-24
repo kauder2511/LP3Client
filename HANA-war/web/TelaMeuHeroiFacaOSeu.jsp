@@ -80,15 +80,15 @@
                 <div id="abas">
                     <h3 class="h3A">Introdução</h3>
                     <div>
-                        <textarea name="historia" type="text" rows="4" cols="115">${hist.get(0).getHistoria()}</textarea>
+                        <textarea name="historiaIntro" type="text" rows="4" cols="115"></textarea>
                     </div>
                     <h3 class="h3A">Meio</h3>
                     <div>
-                        <textarea name="historia" type="text" rows="4" cols="115">${hist.get(1).getHistoria()}</textarea>
+                        <textarea name="historiaMeio" type="text" rows="4" cols="115"></textarea>
                     </div>
                     <h3 class="h3A">Conclusão</h3>
                     <div>
-                        <textarea name="historia" type="text" rows="4" cols="115">${hist.get(2).getHistoria()}</textarea>
+                        <textarea name="historiaConcl" type="text" rows="4" cols="115"></textarea>
                     </div>
                 </div>
                 <br/>

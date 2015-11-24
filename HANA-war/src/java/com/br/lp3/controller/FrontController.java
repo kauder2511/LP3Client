@@ -71,6 +71,14 @@ public class FrontController extends HttpServlet {
         }else if(command.equals("deleteheroi")){
             rd = request.getRequestDispatcher("/AdminController");
             rd.forward(request, response);
+        }else if(command.equals("criarheroi")){
+            request.setAttribute("histIntro", request.getParameter("historiaIntro"));
+            request.setAttribute("TipoOP", "inserirHeroi");
+            request.setAttribute("histMeio", request.getParameter("historiaMeio"));
+            request.setAttribute("histFim", request.getParameter("historiaConcl"));
+            request.setAttribute("nomeHeroi", request.getParameter("nomeHeroi"));  
+            rd = request.getRequestDispatcher("/HeroiController");
+            rd.forward(request, response);
         }
 
     }
