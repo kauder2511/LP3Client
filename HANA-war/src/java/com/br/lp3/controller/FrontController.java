@@ -24,7 +24,7 @@ public class FrontController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     String command, imagem, action;
-    int tipo, id, iduser;
+    int tipo, id, iduser, idheroi;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -68,6 +68,9 @@ public class FrontController extends HttpServlet {
         }else if(command.equals("deleteuser")){
             rd = request.getRequestDispatcher("/AdminController");
             rd.forward(request, response);
+        }else if(command.equals("deleteheroi")){
+            rd = request.getRequestDispatcher("/AdminController");
+            rd.forward(request, response);
         }
 
     }
@@ -92,6 +95,12 @@ public class FrontController extends HttpServlet {
                     iduser = Integer.parseInt(request.getParameter("id"));
                     request.setAttribute("tipoOP", "DeleteUser");
                     request.setAttribute("id", iduser);
+                    break;
+                case "deleteheroi":
+                    command = action;
+                    idheroi = Integer.parseInt(request.getParameter("id"));
+                    request.setAttribute("tipoOP", "DeleteHeroi");
+                    request.setAttribute("idheroideleta", idheroi);
                     break;
             }
         } else {

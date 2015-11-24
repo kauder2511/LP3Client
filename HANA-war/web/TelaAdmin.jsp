@@ -96,7 +96,7 @@
                                                                 </c:choose>
 
                                                                 <td class="textRight">
-                                                                    <a href="FrontController?action=edituser&id=${h.getIdUsuario()}" ><button  class="ui primary button tiny">Edit</button></a>
+                                                                    
                                                                     <a href="FrontController?action=deleteuser&id=${h.getIdUsuario()}" ><button class="ui red button alert tiny">Delete</button></a>
                                                                 </td>
                                                             </tr>
@@ -145,8 +145,9 @@
                                                                 
 
                                                                 <td class="textRight">
-                                                                    <a href="FrontController?action=edituser&id=${h.getIdHeroi()}" ><button  class="ui primary button tiny">História</button></a>
-                                                                    <a href="FrontController?action=deleteuser&id=${h.getIdHeroi()}" ><button class="ui red button alert tiny">Delete</button></a>
+                                                                   
+                                                                    <a href="FrontController?action=deleteheroi&id=${h.getIdHeroi()}" ><button class="ui red button alert tiny">Delete</button></a>
+                                                                
                                                                 </td>
                                                             </tr>
 
