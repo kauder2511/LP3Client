@@ -14,10 +14,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Page style with bootstrap -->
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.min.css" rel='stylesheet' type='text/css' />
+        <link href="css/style_inicial.css" rel='stylesheet' type='text/css' />
         <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
+        <link href="css/style_marvel2.css" rel='stylesheet' type='text/css' />
+
         <!-- Javascript with bootstrap and jQuery -->
-        <script src="js/bootstrap.js"></script>
         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/bootstrap.js"></script>
         <script type="application/x-javascript">
             addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -43,101 +50,23 @@
             <!-- content -->
             <div class="review">
                 <div class="container">
-                    <img src ="${heroi.getImage()}" />
-                <h2>Reviews</h2>
-                <div class="review-md1">
-                    <div class="col-md-4 sed-md">
-                        <div class=" col-1">
-                            <a href="TelaSingle.jsp">
-                                <img class="img-responsive" src="images/re7.jpg" alt="">
-                            </a>
-                            <h4><a href="TelaSingle.jsp">Sed ut perspiciatis unde omnis</a></h4>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 sed-md">
-                        <div class=" col-1">
-                            <a href="TelaSingle.jsp">
-                                <img class="img-responsive" src="images/re1.jpg" alt="">
-                            </a>
-                            <h4><a href="TelaSingle.jsp">Sed ut perspiciatis unde omnis</a></h4>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 sed-md">
-                        <div class=" col-1">
-                            <a href="TelaSingle.jsp">
-                                <img class="img-responsive" src="images/re2.jpg" alt="">
-                            </a>
-                            <h4><a href="TelaSingle.jsp">Sed ut perspiciatis unde omnis</a></h4>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
+                    <p class="pMeuHeroi">Meu Herói Marvel</p>
+                    <br/>
+                    <div class="divImage">
+                        <img class="img-circle imgHeroi" src ="${heroi.getImage()}"/>
                 </div>
-                <div class="review-md1">
-                    <div class="col-md-4 sed-md">
-                        <div class=" col-1">
-                            <a href="TelaSingle.jsp">
-                                <img class="img-responsive" src="images/re3.jpg" alt="">
-                            </a>
-                            <h4><a href="TelaSingle.jsp">Sed ut perspiciatis unde omnis</a></h4>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 sed-md">
-                        <div class=" col-1">
-                            <a href="TelaSingle.jsp">
-                                <img class="img-responsive" src="images/re4.jpg" alt="">
-                            </a>
-                            <h4><a href="TelaSingle.jsp">Sed ut perspiciatis unde omnis</a></h4>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 sed-md">
-                        <div class=" col-1">
-                            <a href="TelaSingle.jsp">
-                                <img class="img-responsive" src="images/re5.jpg" alt="">
-                            </a>
-                            <h4><a href="TelaSingle.jsp">Sed ut perspiciatis unde omnis</a></h4>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
+                <div class="title">
+                    <h4 class="h4Hist">${heroi.getNomeHeroimar()}</h4>
                 </div>
-                <div class="review-md1">
-                    <div class="col-md-4 sed-md">
-                        <div class=" col-1">
-                            <a href="TelaSingle.jsp">
-                                <img class="img-responsive" src="images/re6.jpg" alt="">
-                            </a>
-                            <h4><a href="TelaSingle.jsp">Sed ut perspiciatis unde omnis</a></h4>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 sed-md">
-                        <div class=" col-1">
-                            <a href="TelaSingle.jsp">
-                                <img class="img-responsive" src="images/re7.jpg" alt="">
-                            </a>
-                            <h4><a href="TelaSingle.jsp">Sed ut perspiciatis unde omnis</a></h4>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 sed-md">
-                        <div class=" col-1">
-                            <a href="TelaSingle.jsp">
-                                <img class="img-responsive" src="images/re2.jpg" alt="">
-                            </a>
-                            <h4><a href="TelaSingle.jsp">Sed ut perspiciatis unde omnis</a></h4>
-                            <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
+                <div class="infos">
+                    <p>Descrição:</p>
+                    <p>${heroi.getHistoria()}</p>
                 </div>
+                <div class="clearfix"> </div>
             </div>
         </div>
-        <!--footer-->
-        <c:import url="footer.jsp"></c:import>
-    </body>
+    </div>
+    <!--footer-->
+    <c:import url="footer.jsp"></c:import>
+</body>
 </html>

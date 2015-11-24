@@ -50,12 +50,17 @@
                         </div>
                         <div class="col-md-7 abt-info-pic">
                             <h3>HANA - Heroes of a New Age</h3>
-                            <p>Mauris tempus lorem nec ex facilisis suscipit. Phasellus pretium rutrum augue, eu rutrum lacus lobortis rutrum. Etiam a sem et velit sollicitudin placerat. Maecenas tincidunt justo ligula, sit amet maximus dolor iaculis quis. Sed laoreet cursus posuere.
-                                Pellentesque commodo odio in luctus interdum.</p>
+                            <p>Trabalho da disciplina de Linguagem de Programação III, adiministrada pelo professor
+                            Pedro Cacique. No qual o objetivo da disciplina é montar um site utilizando um
+                            Application Programming Interface (API) de algum site conhecido.</p>
+                            <p>No site HANA, foi utilizada a API da Marvel, que possui informações dos heróis marvel,
+                                suas histórias, quadrinhos, desenhos e filmes que participaram, etc.
+                                Nesse site é possível fazer a criação e escolha de:</p>
                             <ul>
-                                <li>Proin et ligula ut nulla laoreet posuere.</li>
-                                <li>Sed vestibulum magna vel egestas feugiat.</li>
-                                <li>Curabitur nec erat eu lorem gravida aliquet.</li>
+                                <li>Herói.</li>
+                                <li>Vestimenta do herói.</li>
+                                <li>Histórias para o herói criado.</li>
+                                <li>Entre outras coisa.</li>
                             </ul>
                         </div>
                         <div class="clearfix"></div>
@@ -67,12 +72,14 @@
                             <div class="col-md-6">
                                 <img src="images/william.jpg" class="wImg">
                                 <h4 class="h4About">William Zischang Cisang</h4>
-                                <p class="pAbout">Kuspendisse laoreet augue iderti wer interdum merti oremolo lectusto odio, sedorolu fringilla estero libero. </p>
+                                <p class="pAbout">Aluno da Universidade Mackenzie, cursando Ciência da Computação.</p>
+                                <p class="pAbout">No momento está no 4º semestre da graduação.</p>
                             </div>
                             <div class="col-md-6">
                                 <img src="images/raquel.jpg" class="rImg">
                                 <h4 class="h4About">Raquel Baptista Gallo</h4>
-                                <p class="pAbout">Kuspendisse laoreet augue iderti wer interdum merti oremolo lectusto odio, sedorolu fringilla estero libero. </p>
+                                <p class="pAbout">Aluna da Universidade Mackenzie, cursando Ciência da Computação.</p>
+                                <p class="pAbout">No momento está no 4º semestre da graduação. </p>
                             </div>
 
                             <div class="clearfix"></div>
