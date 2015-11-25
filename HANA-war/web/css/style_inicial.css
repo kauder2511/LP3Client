@@ -153,3 +153,21 @@
     font-size: 45px;
     
 }
+.divTextoHeroi{
+    padding-top: 20px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 75%;
+    font-family: Verdana;
+    font-size: 20px;
+    color: #FFF;
+    
+}
+.divHeroi{
+    position: relative;
+    height: 100%;
+    padding: 5%;
+    margin-bottom: 20px;
+    margin: 0 auto;
+}
