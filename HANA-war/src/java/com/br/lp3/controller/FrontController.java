@@ -23,8 +23,9 @@ public class FrontController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    String command, imagem, action;
+    String command, imagem = "", action;
     int tipo, id, iduser, idheroi;
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -50,10 +51,6 @@ public class FrontController extends HttpServlet {
             rd = request.getRequestDispatcher("/MarvelController");
             request.setAttribute("nome", request.getParameter("nomemarvel"));
             rd.forward(request, response);
-        } else if (command.equalsIgnoreCase("editarhistoria")) {
-            rd = request.getRequestDispatcher("/HistoriaController");
-            request.setAttribute("historia", request.getParameter("historia"));
-            rd.forward(request, response);
         } else if (command.equals("imagemPersonagem")) {
             rd = request.getRequestDispatcher("TelaMeuHeroi.jsp");
             if (tipo == 1) {
@@ -72,12 +69,20 @@ public class FrontController extends HttpServlet {
             rd = request.getRequestDispatcher("/AdminController");
             rd.forward(request, response);
         }else if(command.equals("criarheroi")){
+            
             request.setAttribute("histIntro", request.getParameter("historiaIntro"));
             request.setAttribute("TipoOP", "inserirHeroi");
             request.setAttribute("histMeio", request.getParameter("historiaMeio"));
             request.setAttribute("histFim", request.getParameter("historiaConcl"));
             request.setAttribute("nomeHeroi", request.getParameter("nomeHeroi"));  
             rd = request.getRequestDispatcher("/HeroiController");
+            rd.forward(request, response);
+        }else if(command.equals("editarhistoria")){
+            rd = request.getRequestDispatcher("/HistoriaController");
+            String introduc = request.getParameter("editIntro").toString();
+            request.setAttribute("editarIntro",request.getParameter("editIntro"));
+            request.setAttribute("editarMeio",request.getParameter("editMeio"));
+            request.setAttribute("editarFim",request.getParameter("editFim"));
             rd.forward(request, response);
         }
 
@@ -109,6 +114,12 @@ public class FrontController extends HttpServlet {
                     idheroi = Integer.parseInt(request.getParameter("id"));
                     request.setAttribute("tipoOP", "DeleteHeroi");
                     request.setAttribute("idheroideleta", idheroi);
+                    break;
+                case "logout":
+                    RequestDispatcher rd;
+                    request.getSession().invalidate();
+                    rd = request.getRequestDispatcher("/index.jsp");
+                    rd.forward(request, response);
                     break;
             }
         } else {

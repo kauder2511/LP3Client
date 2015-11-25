@@ -77,6 +77,10 @@ public class LoginController extends HttpServlet {
                 request.getSession().setAttribute("Listaheroi", buscalistaheroi());
                 request.getSession().setAttribute("Listahistoria", buscaHistoria(buscaHeroi(user)));
                 request.getSession().setAttribute("ListaVestimenta", buscaVestimenta());
+                request.getSession().setAttribute("cabeca", 1);
+                request.getSession().setAttribute("imagemCabeca", "cabeca1.png");
+                request.getSession().setAttribute("corpo", 3);
+                request.getSession().setAttribute("imagemCorpo", "tronco1.png");
                 rd = request.getRequestDispatcher("/TelaInicial.jsp");
                 rd.forward(request, response);
             }

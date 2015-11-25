@@ -39,29 +39,36 @@ public class HistoriaController extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
 
             Heroi heroi = (Heroi) request.getSession().getAttribute("Heroi");
-            request.getSession().setAttribute("hist", buscaHistoria(heroi));
-            Historia h = (Historia) request.getSession().getAttribute("hist");
-
-            String historia = request.getAttribute("historia").toString();
-            int roteiro = Integer.parseInt(request.getAttribute("roteiro").toString());
-            Historia hist = new Historia();
-            hist.setHistoria(historia);
-            hist.setRoteiro(roteiro);
-            hist.setIdHistoria(h.getIdHistoria());
-            hist.setIdheroi(h.getIdheroi());
-            dAOHistoria.update(hist);
+            String intro = request.getAttribute("editarIntro").toString();
+            String meio = request.getAttribute("editarMeio").toString();
+            String fim = request.getAttribute("editarFim").toString();
+            atualizaHistoria(heroi, intro, meio, fim);
+            
+            
+           
+           
+                
         }
     }
 
-    private Historia buscaHistoria(Heroi heroi) {
+    private void atualizaHistoria(Heroi heroi,String intro,String meio, String fim) {
         List<Historia> lista = dAOHistoria.readList();
         for (Historia his : lista) {
-            if (Objects.equals(his.getIdheroi().getIdHeroi(), heroi.getIdHeroi())) {
-                return his;
+            if(Objects.equals(heroi.getIdHeroi(), his.getIdheroi().getIdHeroi())){
+                if(his.getRoteiro()==1){
+                    his.setHistoria(intro);
+                    dAOHistoria.update(his);
+                }else if(his.getRoteiro()==2){
+                    his.setHistoria(meio);
+                    dAOHistoria.update(his);
+                }else{
+                    his.setHistoria(fim);
+                    dAOHistoria.update(his);
+                }
             }
         }
 
-        return null;
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
