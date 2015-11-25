@@ -13,15 +13,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Page style with bootstrap -->
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.min.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.theme.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.theme.min.css" rel='stylesheet' type='text/css' />
         <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
+        <link href="css/style_inicial.css" rel='stylesheet' type='text/css' />
         <!-- Javascript with bootstrap and jQuery -->
-        <script src="js/bootstrap.js"></script>
         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/bootstrap.js"></script>
         <script type="application/x-javascript"> addEventListener("load", function() { 
             setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
         </script>
-        <c:set var="heroi" value="${pageContext.session.getAttribute('Heroimarvel')}"/>
-        <title>Gallery</title>
+        <c:set var="heroi" value="${pageContext.session.getAttribute('Heroi')}"/>
+        <title>Heróis Criados</title>
 
     </head>
 
@@ -34,62 +41,32 @@
                 </div>
             </div>
             <!---->
-            
+
             <div class="gallery">
                 <div class="container">
-                    <h2>Gallery</h2>
+                    <p class="pMeuHeroi">Heróis Criados</p>
                     <div class="gallery-bottom">
-                        <div class="gallery-1">
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/r4.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/r4.jpg" alt=""/></a>
-                            </div>
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/gl7.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl7.jpg" alt=""/></a>
-                            </div>
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/gl4.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl4.jpg" alt=""/></a>
-                            </div>
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/gl5.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl5.jpg" alt=""/></a>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="gallery-1">
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/gl6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl6.jpg" alt=""/></a>
-                            </div>
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/gl2.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl2.jpg" alt=""/></a>
-                            </div>
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/r6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/r6.jpg" alt=""/></a>
-                            </div>
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/gl7.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl7.jpg" alt=""/></a>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="gallery-1">
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/gl4.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl4.jpg" alt=""/></a>
-                            </div>
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/r3.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/r3.jpg" alt=""/></a>
-                            </div>
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/r4.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/r4.jpg" alt=""/></a>
-                            </div>
-                            <div class="col-md-3 gallery-grid">
-                                <a class="example-image-link" href="images/gl11.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl11.jpg" alt=""/></a>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
 
+                        <div class="gallery-1">
+                        <c:forEach var="h" items="${pageContext.session.getAttribute('Listaheroi')}">
+                            <div class="col-md-3 gallery-grid">
+                                <a href="FrontController?action=heroiselect&id=${h.getIdHeroi()}"><div class="divHeroi">
+                                    <img class="imgHeroiCab" src="images/${h.getIdCapacete().getImagem()}"/>
+                                    <img class="imgHeroiCor" src="images/${h.getIdCorpo().getImagem()}"/>
+                                    </div></a>
+                                <div class="divTextoHeroi">
+                                    <p>${h.getNomeHeroi()}</p>
+                                    <p>${h.getIdUser().getNomeUsuario()}
+                                </div>
+                            </div>
+                        </c:forEach>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
-            <script src="js/lightbox-plus-jquery.min.js"></script>
-            <!--footer-->
+        </div>
+        <script src="js/lightbox-plus-jquery.min.js"></script>
+        <!--footer-->
         <c:import url="footer.jsp"></c:import>
     </body>
 </html>
