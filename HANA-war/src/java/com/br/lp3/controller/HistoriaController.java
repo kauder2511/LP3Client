@@ -43,7 +43,7 @@ public class HistoriaController extends HttpServlet {
             String intro = request.getAttribute("editarIntro").toString();
             String meio = request.getAttribute("editarMeio").toString();
             String fim = request.getAttribute("editarFim").toString();
-            atualizaHistoria(heroi, intro, meio, fim);
+            request.getSession().setAttribute("Listahistoria", atualizaHistoria(heroi, intro, meio, fim));
             response.sendRedirect("TelaMeuHeroi.jsp");
 
         }
