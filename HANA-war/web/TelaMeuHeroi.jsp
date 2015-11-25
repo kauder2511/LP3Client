@@ -67,8 +67,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 heroi">
-                            <img src="images/cabeca${meuheroi.getIdCapacete().getIdVestimenta()}.png" class="img-responsive imgHeroiCab"/>
-                            <img src="images/tronco${meuheroi.getIdCorpo().getIdVestimenta()}.png" class="img-responsive imgHeroiCor"/>
+                            <img src="images/${meuheroi.getIdCapacete().getImagem()}" class="img-responsive imgHeroiCab"/>
+                            <img src="images/${meuheroi.getIdCorpo().getImagem()}" class="img-responsive imgHeroiCor"/>
                         </div>
                         <div class="col-md-6 historia">
                             <c:forEach var="hist" items="${pageContext.session.getAttribute('Listahistoria')}">

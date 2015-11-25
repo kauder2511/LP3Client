@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="TelaContact.jsp">
+                        <a href="FrontController?action=logout">
                             &nbsp; Logout
                         </a>
                     </li>

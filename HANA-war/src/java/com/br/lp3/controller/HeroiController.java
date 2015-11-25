@@ -13,9 +13,11 @@ import com.br.lp3.entities.Usuario;
 import com.br.lp3.entities.Vestimenta;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -58,7 +60,7 @@ public class HeroiController extends HttpServlet {
             Usuario dono = (Usuario) request.getSession().getAttribute("Usuario");
             novo.setIdUser(dono);
             dAOHeroi.inserir(novo);
-            request.getSession().setAttribute("Heroi", novo);
+            
             
             novo = buscaHeroi(dono);
             Historia intro = new Historia();
@@ -76,6 +78,9 @@ public class HeroiController extends HttpServlet {
             fim.setIdheroi(novo);
             fim.setRoteiro(3);
             dAOHistoria.inserir(fim);
+            request.getSession().setAttribute("Listahistoria", buscaHistoria(novo));
+            request.getSession().setAttribute("Heroi", novo);
+            response.sendRedirect("TelaMeuHeroi.jsp");
         }
     }
 
@@ -88,6 +93,21 @@ public class HeroiController extends HttpServlet {
         }
 
         return null;
+    }
+    
+    private List<Historia> buscaHistoria(Heroi heroi) {
+        List<Historia> lista = dAOHistoria.readList();
+        List<Historia> listahistoria = new ArrayList<>();
+        if (heroi == null) {
+            return null;
+        }
+        for (Historia hist : lista) {
+            if ((Objects.equals(hist.getIdheroi().getIdHeroi(), heroi.getIdHeroi()))
+                    && ((hist.getRoteiro() == 1) || (hist.getRoteiro() == 2) || (hist.getRoteiro() == 3))) {
+                listahistoria.add(hist);
+            }
+        }
+        return listahistoria;
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
