@@ -97,8 +97,8 @@
                                     <h4 style="font-family:heroesassembleacadital;font-size: 35px; color:white;">${h.getNomeHeroi()}</h4>
                                     <p>${h.getIdCorpo().getIdVestimenta()}, ${h.getIdCapacete().getIdVestimenta()}</p>
                                     <div class="divHerois">
-                                        <img src="images/cabeca${h.getIdCapacete().getIdVestimenta()}.png" class="img-responsive imgHeroisCab"/>
-                                        <img src="images/tronco${h.getIdCorpo().getIdVestimenta()}.png" class="img-responsive imgHeroisCor"/>
+                                        <img src="images/${h.getIdCapacete().getImagem()}" class="img-responsive imgHeroisCab"/>
+                                        <img src="images/${h.getIdCorpo().getImagem()}" class="img-responsive imgHeroisCor"/>
                                     </div>
                                     <!--<img src="images/t1.jpg" class="img-responsive" alt="" />-->
                                 </div>

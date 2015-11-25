@@ -7,6 +7,7 @@ import com.br.lp3.entities.Heroimarvel;
 import com.br.lp3.entities.Usuario;
 import com.br.lp3.sessionbeans.MarvelManagerLocal;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -48,8 +49,9 @@ public class MarvelController extends HttpServlet {
         Usuario u = (Usuario) request.getSession().getAttribute("Usuario");
         Heroimarvel marvel = new Heroimarvel();
         //Conexão webService para pegar historia
+        
         List<Heroimarvel> list = marvelManager.searchCharacterByName(nomemarvel);
-        if(list.get(0) == null){
+        if(list.isEmpty()){
             request.getSession().setAttribute("heroivalido", false);
             rd = request.getRequestDispatcher("/TelaEscolhaMarvel.jsp");
             rd.forward(request, response);
