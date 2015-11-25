@@ -5,6 +5,7 @@ import com.br.lp3.entities.Heroi;
 import com.br.lp3.entities.Historia;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.ejb.EJB;
@@ -43,32 +44,33 @@ public class HistoriaController extends HttpServlet {
             String meio = request.getAttribute("editarMeio").toString();
             String fim = request.getAttribute("editarFim").toString();
             atualizaHistoria(heroi, intro, meio, fim);
-            
-            
-           
-           
-                
+            response.sendRedirect("TelaMeuHeroi.jsp");
+
         }
     }
 
-    private void atualizaHistoria(Heroi heroi,String intro,String meio, String fim) {
+    private List<Historia> atualizaHistoria(Heroi heroi, String intro, String meio, String fim) {
         List<Historia> lista = dAOHistoria.readList();
+        List<Historia> retorno = new ArrayList<>();
         for (Historia his : lista) {
-            if(Objects.equals(heroi.getIdHeroi(), his.getIdheroi().getIdHeroi())){
-                if(his.getRoteiro()==1){
+            if (Objects.equals(heroi.getIdHeroi(), his.getIdheroi().getIdHeroi())) {
+                if (his.getRoteiro() == 1) {
                     his.setHistoria(intro);
                     dAOHistoria.update(his);
-                }else if(his.getRoteiro()==2){
+                    retorno.add(his);
+                } else if (his.getRoteiro() == 2) {
                     his.setHistoria(meio);
                     dAOHistoria.update(his);
-                }else{
+                    retorno.add(his);
+                } else {
                     his.setHistoria(fim);
                     dAOHistoria.update(his);
+                    retorno.add(his);
                 }
             }
         }
+        return retorno;
 
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
