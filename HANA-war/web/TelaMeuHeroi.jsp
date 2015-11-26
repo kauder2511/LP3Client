@@ -63,7 +63,7 @@
                         </a>
                         <br/>
                         <br/>
-                        <button class="btn btn-success" id="btnSugestao">História Sugestão</button>
+                        <a href="TelaHistoriaSugestao.jsp"><button class="btn btn-success" id="btnSugestao">História Sugestão</button></a>
                     </div>
                     <div class="row">
                         <div class="col-md-6 heroi">
