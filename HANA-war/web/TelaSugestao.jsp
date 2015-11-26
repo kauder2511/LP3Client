@@ -51,12 +51,12 @@
                 </div>
             </div>
             <!--pages-starts-->
-            <p class="pMeuHeroi">${heroi.getNomeHeroi()}</p>
+            <p class="pMeuHeroi">Sugerir história para ${heroi.getNomeHeroi()}</p>
         <div class="div-container">
             <div class="row">
                 <div class="col-md-12 heroi">
-                    <img src="images/${heroi.getIdCapacete().getImagem()}" class="img-responsive imgHeroiCab"/>
-                    <img src="images/${heroi.getIdCorpo().getImagem()}" class="img-responsive imgHeroiCor"/>
+                    <img src="images/${heroi.getIdCapacete().getImagem()}" class="img-responsive imgCab"/>
+                    <img src="images/${heroi.getIdCorpo().getImagem()}" class="img-responsive imgCor"/>
                 </div>
             </div>
             <div class="row">

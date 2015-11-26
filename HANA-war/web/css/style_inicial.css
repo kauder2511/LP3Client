@@ -145,6 +145,8 @@
 #btnSugestao{
     float: right;
     margin-right: 10%;
+    width: 100%;
+    font-size: 1em;
 }
 .h4Hist{
     color: #E00000;
@@ -174,4 +176,15 @@
 
 .col-md-3{
   min-width: 292px;
-} 
+}
+
+.imgCab{
+    width: 15%;
+    height: 15%;
+    margin: 0 auto;
+}
+.imgCor{
+    width: 15%;
+    height: 15%;
+    margin: 0 auto;
+}

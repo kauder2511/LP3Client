@@ -36,7 +36,7 @@
 
         <title>Meu Herói</title>
         <c:set var="heroi" value="${pageContext.session.getAttribute('Heroi')}"/>
-        <c:set var="hist" value="${pageContext.session.getAttribute('Listahistoria')}"/>
+        <c:set var="sugestao" value="${pageContext.session.getAttribute('Histsugestao')}"/>
     </head>
 
     <body>
@@ -48,21 +48,21 @@
                 </div>
             </div>
             <!--pages-starts-->
-            <h2 class="h2Titles">Editar história de ${heroi.getNomeHeroi()}</h2>
+            <p class="pMeuHeroi">Sugestões de história</p>
         <form action="FrontController" method="POST">
             <div class="ui container">
                 <div id="abas">
                     <h3 class="h3A">Introdução</h3>
                     <div>
-                        <textarea name="editIntro" type="text" rows="4" cols="115">${hist.get(0).getHistoria()}</textarea>
+                        
                     </div>
                     <h3 class="h3A">Meio</h3>
                     <div>
-                        <textarea name="editMeio" type="text" rows="4" cols="115">${hist.get(1).getHistoria()}</textarea>
+                        
                     </div>
                     <h3 class="h3A">Conclusão</h3>
                     <div>
-                        <textarea name="editFim" type="text" rows="4" cols="115">${hist.get(2).getHistoria()}</textarea>
+                        
                     </div>
                 </div>
                 <br/>
