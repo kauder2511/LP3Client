@@ -96,6 +96,12 @@ public class FrontController extends HttpServlet {
             request.setAttribute("editarMeio", request.getParameter("editMeio"));
             request.setAttribute("editarFim", request.getParameter("editFim"));
             rd.forward(request, response);
+        } else if (command.equals("sugerirhistoria")) {
+            rd = request.getRequestDispatcher("/HistSugestaoController");
+            request.setAttribute("editIntro", request.getParameter("editIntro"));
+            request.setAttribute("editMeio", request.getParameter("editMeio"));
+            request.setAttribute("editFim", request.getParameter("editFim"));
+            rd.forward(request, response);
         }
 
     }

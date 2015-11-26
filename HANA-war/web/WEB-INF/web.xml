@@ -28,6 +28,10 @@
         <servlet-name>HeroiController</servlet-name>
         <servlet-class>com.br.lp3.controller.HeroiController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HistSugestaoController</servlet-name>
+        <servlet-class>com.br.lp3.controller.HistSugestaoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>HeroiController</servlet-name>
         <url-pattern>/HeroiController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistSugestaoController</servlet-name>
+        <url-pattern>/HistSugestaoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
