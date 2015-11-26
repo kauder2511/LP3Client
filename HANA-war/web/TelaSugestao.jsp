@@ -38,8 +38,8 @@
 
         <title>Sugestão</title>
 
-        <c:set var="heroi" value="${pageContext.session.getAttribute('Heroi')}"/>
-        <c:set var="hist" value="${pageContext.session.getAttribute('Historia')}"/>
+        <c:set var="heroi" value="${pageContext.session.getAttribute('heroiHistSelecionado')}"/>
+        <c:set var="hist" value="${pageContext.session.getAttribute('HistSelecionado')}"/>
     </head>
 
     <body>

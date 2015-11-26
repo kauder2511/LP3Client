@@ -1,6 +1,14 @@
 package com.br.lp3.controller;
 
+import com.br.lp3.DAO.DAOHeroiLocal;
+import com.br.lp3.DAO.DAOHistoriaLocal;
+import com.br.lp3.entities.Heroi;
+import com.br.lp3.entities.Historia;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +22,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class FrontController extends HttpServlet {
 
+    @EJB
+    private DAOHistoriaLocal dAOHistoria;
+    @EJB
+    private DAOHeroiLocal dAOHeroi;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -25,7 +38,6 @@ public class FrontController extends HttpServlet {
      */
     String command, imagem = "", action;
     int tipo, id, iduser, idheroi;
-    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -62,27 +74,27 @@ public class FrontController extends HttpServlet {
             }
             rd.forward(request, response);
 
-        }else if(command.equals("deleteuser")){
+        } else if (command.equals("deleteuser")) {
             rd = request.getRequestDispatcher("/AdminController");
             rd.forward(request, response);
-        }else if(command.equals("deleteheroi")){
+        } else if (command.equals("deleteheroi")) {
             rd = request.getRequestDispatcher("/AdminController");
             rd.forward(request, response);
-        }else if(command.equals("criarheroi")){
-            
+        } else if (command.equals("criarheroi")) {
+
             request.setAttribute("histIntro", request.getParameter("historiaIntro"));
             request.setAttribute("TipoOP", "inserirHeroi");
             request.setAttribute("histMeio", request.getParameter("historiaMeio"));
             request.setAttribute("histFim", request.getParameter("historiaConcl"));
-            request.setAttribute("nomeHeroi", request.getParameter("nomeHeroi"));  
+            request.setAttribute("nomeHeroi", request.getParameter("nomeHeroi"));
             rd = request.getRequestDispatcher("/HeroiController");
             rd.forward(request, response);
-        }else if(command.equals("editarhistoria")){
+        } else if (command.equals("editarhistoria")) {
             rd = request.getRequestDispatcher("/HistoriaController");
             String introduc = request.getParameter("editIntro").toString();
-            request.setAttribute("editarIntro",request.getParameter("editIntro"));
-            request.setAttribute("editarMeio",request.getParameter("editMeio"));
-            request.setAttribute("editarFim",request.getParameter("editFim"));
+            request.setAttribute("editarIntro", request.getParameter("editIntro"));
+            request.setAttribute("editarMeio", request.getParameter("editMeio"));
+            request.setAttribute("editarFim", request.getParameter("editFim"));
             rd.forward(request, response);
         }
 
@@ -102,7 +114,7 @@ public class FrontController extends HttpServlet {
             throws ServletException, IOException {
         action = (request.getParameter("action") != null) ? request.getParameter("action") : null;
         if (action != null) {
-            switch(action){
+            switch (action) {
                 case "deleteuser":
                     command = action;
                     iduser = Integer.parseInt(request.getParameter("id"));
@@ -119,6 +131,29 @@ public class FrontController extends HttpServlet {
                     RequestDispatcher rd;
                     request.getSession().invalidate();
                     rd = request.getRequestDispatcher("/index.jsp");
+                    rd.forward(request, response);
+                    break;
+                case "heroiselect":
+                    Integer id = Integer.parseInt(request.getParameter("id"));
+                    List<Heroi> lista = dAOHeroi.read();
+                    List<Historia> listaH = dAOHistoria.readList();
+                    List<Historia> listaNovaH = new ArrayList<>();
+                    Heroi selec = null;
+                    for (Heroi h : lista) {
+                        if (Objects.equals(h.getIdHeroi(), id)) {
+                           selec = h;
+                           break;
+                        }
+                    }
+                    
+                    for (Historia hist : listaH) {
+                        if (Objects.equals(hist.getIdheroi().getIdHeroi(), selec.getIdHeroi())) {
+                            listaNovaH.add(hist);
+                        }
+                    }
+                    request.getSession().setAttribute("heroiHistSelecionado", selec);
+                    request.getSession().setAttribute("HistSelecionado", listaNovaH);
+                    rd = request.getRequestDispatcher("/TelaSugestao.jsp");
                     rd.forward(request, response);
                     break;
             }
