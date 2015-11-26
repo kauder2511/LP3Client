@@ -38,7 +38,7 @@
                     </li>
                     <li>
                         <a href="TelaGallery.jsp">
-                            &nbsp; Gallery
+                            &nbsp; Heróis Criados
                         </a>
                     </li>
                     <li>

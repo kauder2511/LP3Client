@@ -18,7 +18,7 @@
         <link href="css/jquery-ui.theme.css" rel='stylesheet' type='text/css' />
         <link href="css/jquery-ui.theme.min.css" rel='stylesheet' type='text/css' />
         <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
-        <link href="css/style-facaHeroi.css" rel='stylesheet' type='text/css' />
+        <link href="css/style_marvel2.css" rel='stylesheet' type='text/css' />
         <link href="css/style_inicial.css" rel='stylesheet' type='text/css' />
         <!-- Javascript with bootstrap and jQuery -->
         <script src="js/jquery.min.js"></script>
@@ -37,9 +37,9 @@
         </script>
 
         <title>Sugestão</title>
-        
+
         <c:set var="heroi" value="${pageContext.session.getAttribute('Heroi')}"/>
-        <c:set var="historia" value="${pageContext.session.getAttribute('Historia')}"/>
+        <c:set var="hist" value="${pageContext.session.getAttribute('Historia')}"/>
     </head>
 
     <body>
@@ -51,39 +51,40 @@
                 </div>
             </div>
             <!--pages-starts-->
-                <p class="pMeuHeroi">${heroi.getNomeHeroi()}</p>
-                <div class="div-container">
-                    <div class="row">
-                        <div class="col-md-6 heroi">
-                            <img src="images/${heroi.getIdCapacete().getImagem()}" class="img-responsive imgHeroiCab"/>
-                            <img src="images/${heroi.getIdCorpo().getImagem()}" class="img-responsive imgHeroiCor"/>
-                        </div>
-                        <div class="col-md-6 historia">
-                            <c:forEach var="hist" items="${pageContext.session.getAttribute('Listahistoria')}">
-                                <div class="row">
-                                    <c:choose>
-                                        <c:when test="${hist.getRoteiro() == 1}">
-                                            <div class="col-xs-4 intro">
-                                                ${hist.getHistoria()}
-                                            </div>
-                                        </c:when>
-                                        <c:when test="${hist.getRoteiro() == 2}">
-                                            <div class="col-xs-4 meio">
-                                                ${hist.getHistoria()}
-                                            </div>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <div class="col-xs-4 conclusao">
-                                                ${hist.getHistoria()}
-                                            </div>
-                                        </c:otherwise>
-                                    </c:choose>
-
-                                </div>
-                            </c:forEach>
-                        </div>
-                    </div>
+            <p class="pMeuHeroi">${heroi.getNomeHeroi()}</p>
+        <div class="div-container">
+            <div class="row">
+                <div class="col-md-12 heroi">
+                    <img src="images/${heroi.getIdCapacete().getImagem()}" class="img-responsive imgHeroiCab"/>
+                    <img src="images/${heroi.getIdCorpo().getImagem()}" class="img-responsive imgHeroiCor"/>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 historia">
+                    <form action="FrontController" method="POST">
+                        <div class="ui container">
+                            <div id="abas">
+                                <h3 class="h3A">Introdução</h3>
+                                <div>
+                                    <textarea id="histMarvel" name="historia" type="text" rows="4" cols="115">${hist.get(0).getHistoria()}</textarea>
+                                </div>
+                                <h3 class="h3A">Meio</h3>
+                                <div>
+                                    <textarea name="editMeio" type="text" rows="4" cols="115">${hist.get(1).getHistoria()}</textarea>
+                                </div>
+                                <h3 class="h3A">Conclusão</h3>
+                                <div>
+                                    <textarea name="editFim" type="text" rows="4" cols="115">${hist.get(2).getHistoria()}</textarea>
+                                </div>
+                            </div>
+                            <br/>
+                            <input class="btn btn-danger btn-block" style="width: 50%;margin-left: 25%;margin-bottom: 20px" type="submit" value="Sugerir"/>
+                            <input type="hidden" name="command" value="sugerirhistoria"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <!--pages-ends-->
         <!--footer-->
         <c:import url="footer.jsp"></c:import>

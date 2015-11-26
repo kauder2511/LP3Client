@@ -13,10 +13,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Page style with bootstrap -->
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.css" rel='stylesheet' type='text/css' />
+        <link href="css/jquery-ui.min.css" rel='stylesheet' type='text/css' />
         <link href="css/style_marvel.css" rel='stylesheet' type='text/css' />
         <!-- Javascript with bootstrap and jQuery -->
-        <script src="js/bootstrap.js"></script>
         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/bootstrap.js"></script>
         <script type="application/x-javascript"> addEventListener("load", function() { 
             setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
         </script>
@@ -69,12 +73,11 @@
                                 <li><span></span></li>
                                 <li>
                                     <div class="address-info">
-                                        <h4>New York, Washington</h4>
-                                        <p>10-765 MD-Road</p>
-                                        <p>Washington, DC, United States,</p>
-                                        <p>Phone: 123 456 7890</p>
-                                        <p>Mail: <a href="mailto:info@example.com">info(at)example.com</a></p>
-                                        <h5><a href="">Visit on Google Maps >></a></h5>
+                                        <h4>São Paulo, São Paulo</h4>
+                                        <p>Avenida X, 112</p>
+                                        <p>São Paulo, SP, Brasil,</p>
+                                        <p>Telefone: (11) 1111 1111</p>
+                                        <p>E-mail: mackenzie@mack.com</p>
                                     </div>
                                 </li>
                             </ul>
@@ -82,12 +85,11 @@
                                 <li><span></span></li>
                                 <li>
                                     <div class="address-info">
-                                        <h4>London, UK</h4>
-                                        <p>10-765 MD-Road</p>
-                                        <p>Lorem ipsum, domon sit, UK,</p>
-                                        <p>Phone: 123 456 7890</p>
-                                        <p>Mail: <a href="mailto:info@example.com">info(at)example.com</a></p>
-                                        <h5><a href="">Visit on Google Maps >></a></h5>
+                                        <h4>São Paulo, São Paulo</h4>
+                                        <p>R. da Consolação, 930</p>
+                                        <p>Consolação, SP</p>
+                                        <p>Telefone: (11) 2114-8000</p>
+                                        <p>Site: mackenzie.br</p>
                                     </div>
                                 </li>
                             </ul>

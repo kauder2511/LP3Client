@@ -25,6 +25,7 @@
         <script src="js/jquery-ui.js"></script>
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/bootstrap.js"></script>
+        <script src="js/jquery_hana.js"></script>
         <script type="application/x-javascript">
             addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -59,8 +60,16 @@
                     <h4 class="h4Hist">${heroi.getNomeHeroimar()}</h4>
                 </div>
                 <div class="infos">
-                    <p>Descrição:</p>
-                    <p>${heroi.getHistoria()}</p>
+                    <div id="abas">
+                        <h3 class="h3A">História</h3>
+                        <div>
+                            <textarea id="histMarvel" disabled name="historia" type="text" rows="4" cols="115">${heroi.getHistoria()}</textarea>
+                            <button class="btn-danger btnMarvel" value="Editar">Editar História</button>
+                        </div>
+                    </div>
+                    <br/>
+                    <input class="btn btn-danger btn-block" style="width: 50%;margin-left: 25%;margin-bottom: 20px" type="submit" value="Modificar História"/>
+                    <input type="hidden" name="command" value="modificarhistoria"/>
                 </div>
                 <div class="clearfix"> </div>
             </div>

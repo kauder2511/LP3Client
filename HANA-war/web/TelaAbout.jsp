@@ -54,7 +54,7 @@
                             Pedro Cacique. No qual o objetivo da disciplina é montar um site utilizando um
                             Application Programming Interface (API) de algum site conhecido.</p>
                             <p>No site HANA, foi utilizada a API da Marvel, que possui informações dos heróis marvel,
-                                suas histórias, quadrinhos, desenhos e filmes que participaram, etc.
+                                suas histórias, curtidas, etc.
                                 Nesse site é possível fazer a criação e escolha de:</p>
                             <ul>
                                 <li>Herói.</li>

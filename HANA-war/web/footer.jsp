@@ -12,7 +12,9 @@
         <div class="footer-grids">
             <div class="col-md-3 ftr-info">
                 <h3>About Us</h3>
-                <p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
+                <p style="text-align: justify">No site HANA, foi utilizada a API da Marvel, que possui informações dos heróis marvel, 
+                    suas histórias, curtidas, etc. Nesse site é possível fazer a criação e escolha de:
+                    Herói, vestimenta do herói, histórias para o herói criado, entre outras coisa.</p>
             </div>
             <div class="col-md-3 ftr-grid">
                 <h3>Categories</h3>
