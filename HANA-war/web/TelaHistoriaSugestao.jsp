@@ -51,13 +51,17 @@
             <p class="pMeuHeroi">Sugestões de história</p>
             <form action="FrontController" method="POST">
                 <div class="ui container">
-                <c:forEach var="hs" items="${pageContext.session.getAttribute('listaHistSugestao')}">
+                <c:forEach var="hs" items="${pageContext.session.getAttribute('ListaHistSuges')}">
                     <div id="abas">
                         <h3 class="h3A">Introdução</h3>
                         <c:if test="${hs.getRoteiro() == 1}">
                             <div>
                                 <p>
                                     ${hs.getHistoria()}
+                                    
+                                <p>
+                                    ${hs.getIdusuario().getNomeUsuario()}
+                                </p>
                                 </p>
                             </div>
                         </c:if>

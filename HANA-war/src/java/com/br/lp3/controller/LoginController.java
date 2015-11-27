@@ -2,6 +2,7 @@ package com.br.lp3.controller;
 
 import com.br.lp3.DAO.DAOHeroiLocal;
 import com.br.lp3.DAO.DAOHeroimarvelLocal;
+import com.br.lp3.DAO.DAOHistSugestaoLocal;
 import com.br.lp3.DAO.DAOHistoriaLocal;
 import com.br.lp3.DAO.DAOManagerLocal;
 import com.br.lp3.DAO.DAOVestimentaLocal;
@@ -9,6 +10,7 @@ import com.br.lp3.entities.Usuario;
 import com.br.lp3.entities.Heroi;
 import com.br.lp3.entities.Heroimarvel;
 import com.br.lp3.entities.Historia;
+import com.br.lp3.entities.Histsugestao;
 import com.br.lp3.entities.Vestimenta;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,6 +30,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author William Cisang (31441564)
  */
 public class LoginController extends HttpServlet {
+    @EJB
+    private DAOHistSugestaoLocal dAOHistSugestao;
 
     @EJB
     private DAOVestimentaLocal dAOVestimenta;
@@ -73,10 +77,14 @@ public class LoginController extends HttpServlet {
                 }
                 request.getSession().setAttribute("Usuario", user);
                 request.getSession().setAttribute("Heroimarvel", buscaMarvel(user));
-                request.getSession().setAttribute("Heroi", buscaHeroi(user));
+                Heroi he = buscaHeroi(user);
+                request.getSession().setAttribute("Heroi", he);
                 request.getSession().setAttribute("Listaheroi", buscalistaheroi());
-                request.getSession().setAttribute("Listahistoria", buscaHistoria(buscaHeroi(user)));
+                request.getSession().setAttribute("Listahistoria", buscaHistoria(he));
                 request.getSession().setAttribute("ListaVestimenta", buscaVestimenta());
+                
+                request.getSession().setAttribute("ListaHistSuges", buscaListaSug(he));
+                
                 request.getSession().setAttribute("cabeca", 1);
                 request.getSession().setAttribute("imagemCabeca", "cabeca1.png");
                 request.getSession().setAttribute("corpo", 3);
@@ -148,6 +156,20 @@ public class LoginController extends HttpServlet {
 
     public List<Vestimenta> buscaVestimenta() {
         List<Vestimenta>lista = dAOVestimenta.read();
+        return lista;
+    }
+    
+    public List<Histsugestao> buscaListaSug(Heroi idheroi ){
+        List<Histsugestao> lista = new ArrayList<>();
+        if(idheroi==null){
+            return null;
+        }
+        for (Histsugestao hs : dAOHistSugestao.read()) {
+            if(Objects.equals(hs.getIdheroi().getIdHeroi(), idheroi.getIdHeroi())){
+                lista.add(hs);
+            }
+        }
+        
         return lista;
     }
 

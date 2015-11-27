@@ -41,45 +41,50 @@ public class HistSugestaoController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Heroi heroi = (Heroi) request.getSession().getAttribute("heroiHistSelecionado");
-            Usuario userDaSugestao = (Usuario) request.getSession().getAttribute("Usuario");
-            String introducao = request.getAttribute("editIntro").toString();
-            String meio = request.getAttribute("editMeio").toString();
-            String conclusao = request.getAttribute("editFim").toString();
 
-            for (Historia his : dAOHistoria.readList()) {
-                if (Objects.equals(his.getIdheroi().getIdHeroi(), heroi.getIdHeroi())) {
-                    if (his.getRoteiro() == 1) {
-                        if (!his.getHistoria().equals(introducao)) {
-                            Histsugestao sugIntro = new Histsugestao();
-                            sugIntro.setHistoria(introducao);
-                            sugIntro.setIdheroi(heroi);
-                            sugIntro.setIdusuario(userDaSugestao);
-                            sugIntro.setRoteiro(1);
-                            dAOHistSugestao.inserir(sugIntro);
-                        }
-                    } else if (his.getRoteiro() == 2) {
-                        if (!his.getHistoria().equals(meio)) {
-                            Histsugestao sugMeio = new Histsugestao();
-                            sugMeio.setHistoria(meio);
-                            sugMeio.setIdheroi(heroi);
-                            sugMeio.setIdusuario(userDaSugestao);
-                            sugMeio.setRoteiro(2);
-                            dAOHistSugestao.inserir(sugMeio);
-                        }
-                    } else if (his.getRoteiro() == 3) {
-                        if (!his.getHistoria().equals(conclusao)) {
-                            Histsugestao sugConclusao = new Histsugestao();
-                            sugConclusao.setHistoria(conclusao);
-                            sugConclusao.setIdheroi(heroi);
-                            sugConclusao.setIdusuario(userDaSugestao);
-                            sugConclusao.setRoteiro(3);
-                            dAOHistSugestao.inserir(sugConclusao);
+            String tipoop = request.getAttribute("TipoOPSugs").toString();
+
+            if (tipoop.equals("insertSug")){
+                Heroi heroi = (Heroi) request.getSession().getAttribute("heroiHistSelecionado");
+                Usuario userDaSugestao = (Usuario) request.getSession().getAttribute("Usuario");
+                String introducao = request.getAttribute("editIntro").toString();
+                String meio = request.getAttribute("editMeio").toString();
+                String conclusao = request.getAttribute("editFim").toString();
+
+                for (Historia his : dAOHistoria.readList()) {
+                    if (Objects.equals(his.getIdheroi().getIdHeroi(), heroi.getIdHeroi())) {
+                        if (his.getRoteiro() == 1) {
+                            if (!his.getHistoria().equals(introducao)) {
+                                Histsugestao sugIntro = new Histsugestao();
+                                sugIntro.setHistoria(introducao);
+                                sugIntro.setIdheroi(heroi);
+                                sugIntro.setIdusuario(userDaSugestao);
+                                sugIntro.setRoteiro(1);
+                                dAOHistSugestao.inserir(sugIntro);
+                            }
+                        } else if (his.getRoteiro() == 2) {
+                            if (!his.getHistoria().equals(meio)) {
+                                Histsugestao sugMeio = new Histsugestao();
+                                sugMeio.setHistoria(meio);
+                                sugMeio.setIdheroi(heroi);
+                                sugMeio.setIdusuario(userDaSugestao);
+                                sugMeio.setRoteiro(2);
+                                dAOHistSugestao.inserir(sugMeio);
+                            }
+                        } else if (his.getRoteiro() == 3) {
+                            if (!his.getHistoria().equals(conclusao)) {
+                                Histsugestao sugConclusao = new Histsugestao();
+                                sugConclusao.setHistoria(conclusao);
+                                sugConclusao.setIdheroi(heroi);
+                                sugConclusao.setIdusuario(userDaSugestao);
+                                sugConclusao.setRoteiro(3);
+                                dAOHistSugestao.inserir(sugConclusao);
+                            }
                         }
                     }
                 }
+                response.sendRedirect("TelaSugestao.jsp");
             }
-            response.sendRedirect("TelaSugestao.jsp");
         }
     }
 

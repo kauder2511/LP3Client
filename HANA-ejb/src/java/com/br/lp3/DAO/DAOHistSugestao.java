@@ -23,7 +23,7 @@ public class DAOHistSugestao implements DAOHistSugestaoLocal {
     public void inserir(Histsugestao histSugestao) {
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
-            GenericDAO servico = (GenericDAO) registro.lookup("Histsugestao");
+            GenericDAO servico = (GenericDAO) registro.lookup("HistSugestao");
             servico.insert(histSugestao);
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHistSugestao.class.getName()).log(Level.SEVERE, null, ex);
@@ -36,7 +36,7 @@ public class DAOHistSugestao implements DAOHistSugestaoLocal {
         List<Histsugestao> lista = null;
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
-            GenericDAO servico = (GenericDAO) registro.lookup("Histsugestao");
+            GenericDAO servico = (GenericDAO) registro.lookup("HistSugestao");
             lista = servico.readList();
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHistSugestao.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,7 +48,7 @@ public class DAOHistSugestao implements DAOHistSugestaoLocal {
     public void update(Histsugestao histSugestao) {
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
-            GenericDAO servico = (GenericDAO) registro.lookup("Histsugestao");
+            GenericDAO servico = (GenericDAO) registro.lookup("HistSugestao");
             servico.update(histSugestao);
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHistSugestao.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,7 +59,7 @@ public class DAOHistSugestao implements DAOHistSugestaoLocal {
     public void delete(int id_histSugestao) {
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
-            GenericDAO servico = (GenericDAO) registro.lookup("Histsugestao");
+            GenericDAO servico = (GenericDAO) registro.lookup("HistSugestao");
             servico.delete(id_histSugestao);
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DAOHistSugestao.class.getName()).log(Level.SEVERE, null, ex);
