@@ -61,6 +61,7 @@ public class FrontController extends HttpServlet {
             rd.forward(request, response);
         } else if (command.equalsIgnoreCase("escolhamarvel")) {
             rd = request.getRequestDispatcher("/MarvelController");
+            request.setAttribute("TipoOPMarvel", "insert");
             request.setAttribute("nome", request.getParameter("nomemarvel"));
             rd.forward(request, response);
         } else if (command.equals("imagemPersonagem")) {
@@ -96,6 +97,12 @@ public class FrontController extends HttpServlet {
             request.setAttribute("editarMeio", request.getParameter("editMeio"));
             request.setAttribute("editarFim", request.getParameter("editFim"));
             rd.forward(request, response);
+            
+        }else if(command.equals("modificarhistoria")){
+             rd = request.getRequestDispatcher("/MarvelController");
+             request.setAttribute("TipoOPMarvel", "histInsert");
+             request.setAttribute("novaHistoria", request.getParameter("historia"));
+             rd.forward(request, response);
         }
 
     }
