@@ -33,7 +33,7 @@ public class DAOHistSugestao implements DAOHistSugestaoLocal {
 
     @Override
     public List<Histsugestao> read() {
-        List<Histsugestao> lista = new ArrayList<>();
+        List<Histsugestao> lista = null;
         try {
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             GenericDAO servico = (GenericDAO) registro.lookup("Histsugestao");

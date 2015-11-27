@@ -60,16 +60,18 @@
                     <h4 class="h4Hist">${heroi.getNomeHeroimar()}</h4>
                 </div>
                 <div class="infos">
-                    <div id="abas">
-                        <h3 class="h3A">História</h3>
-                        <div>
-                            <textarea id="histMarvel" disabled name="historia" type="text" rows="4" cols="115">${heroi.getHistoria()}</textarea>
-                            <button class="btn-danger btnMarvel" value="Editar">Editar História</button>
+                    <form action="FrontController" method="POST">
+                        <div id="abas">
+                            <h3 class="h3A">História</h3>
+                            <div>
+                                <textarea id="histMarvel"  name="historia" type="text" rows="4" cols="115">${heroi.getHistoria()}</textarea>
+
+                            </div>
                         </div>
-                    </div>
-                    <br/>
-                    <input class="btn btn-danger btn-block" style="width: 50%;margin-left: 25%;margin-bottom: 20px" type="submit" value="Modificar História"/>
-                    <input type="hidden" name="command" value="modificarhistoria"/>
+                        <br/>
+                        <input class="btn btn-danger btn-block" style="width: 50%;margin-left: 25%;margin-bottom: 20px" type="submit" value="Modificar História"/>
+                        <input type="hidden" name="command" value="modificarhistoria"/>
+                    </form>
                 </div>
                 <div class="clearfix"> </div>
             </div>

@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Raquel Gallo (31458521)
  */
 public class MarvelController extends HttpServlet {
+
     @EJB
     private MarvelManagerLocal marvelManager;
 
@@ -45,26 +46,39 @@ public class MarvelController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         /* TODO output your page here. You may use following sample code. */
-        String nomemarvel = request.getAttribute("nome").toString();
-        Usuario u = (Usuario) request.getSession().getAttribute("Usuario");
-        Heroimarvel marvel = new Heroimarvel();
+        String tipoop = request.getAttribute("TipoOPMarvel").toString();
+
+        if (tipoop.equals("insert")) {
+            String nomemarvel = request.getAttribute("nome").toString();
+            Usuario u = (Usuario) request.getSession().getAttribute("Usuario");
+            Heroimarvel marvel = new Heroimarvel();
         //Conexão webService para pegar historia
-        
-        List<Heroimarvel> list = marvelManager.searchCharacterByName(nomemarvel);
-        if(list.isEmpty()){
-            request.getSession().setAttribute("heroivalido", false);
-            rd = request.getRequestDispatcher("/TelaEscolhaMarvel.jsp");
+
+            List<Heroimarvel> list = marvelManager.searchCharacterByName(nomemarvel);
+            if (list.isEmpty()) {
+                request.getSession().setAttribute("heroivalido", false);
+                rd = request.getRequestDispatcher("/TelaEscolhaMarvel.jsp");
+                rd.forward(request, response);
+            }
+            marvel.setHistoria(list.get(0).getHistoria());
+            marvel.setNomeHeroimar(list.get(0).getNomeHeroimar());
+            marvel.setIdUsermarvel(u);
+            marvel.setImage(list.get(0).getImage());
+            dAOHeroimarvel.inserir(marvel);
+            request.getSession().setAttribute("Heroimarvel", marvel);
+            request.getSession().setAttribute("Listaheroi", buscalistaheroi());
+            rd = request.getRequestDispatcher("/TelaInicial.jsp");
             rd.forward(request, response);
+
+        }else if(tipoop.equals("histInsert")){
+            String novaHist = request.getAttribute("novaHistoria").toString();
+            Heroimarvel heroi = (Heroimarvel) request.getSession().getAttribute("Heroimarvel");
+            heroi.setHistoria(novaHist);
+            dAOHeroimarvel.update(heroi);
+            request.getSession().setAttribute("Heroimarvel",heroi);
+            response.sendRedirect("TelaReviews.jsp");
+            
         }
-        marvel.setHistoria(list.get(0).getHistoria());
-        marvel.setNomeHeroimar(list.get(0).getNomeHeroimar());
-        marvel.setIdUsermarvel(u);
-        marvel.setImage(list.get(0).getImage());
-        dAOHeroimarvel.inserir(marvel);
-        request.getSession().setAttribute("Heroimarvel", marvel);
-        request.getSession().setAttribute("Listaheroi", buscalistaheroi());
-        rd = request.getRequestDispatcher("/TelaInicial.jsp");
-        rd.forward(request, response);
 
     }
 

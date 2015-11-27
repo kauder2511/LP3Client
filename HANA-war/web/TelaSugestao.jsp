@@ -66,7 +66,7 @@
                             <div id="abas">
                                 <h3 class="h3A">Introdução</h3>
                                 <div>
-                                    <textarea id="histMarvel" name="historia" type="text" rows="4" cols="115">${hist.get(0).getHistoria()}</textarea>
+                                    <textarea id="histMarvel" name="editIntro" type="text" rows="4" cols="115">${hist.get(0).getHistoria()}</textarea>
                                 </div>
                                 <h3 class="h3A">Meio</h3>
                                 <div>

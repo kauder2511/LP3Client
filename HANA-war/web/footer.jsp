@@ -16,35 +16,7 @@
                     suas histórias, curtidas, etc. Nesse site é possível fazer a criação e escolha de:
                     Herói, vestimenta do herói, histórias para o herói criado, entre outras coisa.</p>
             </div>
-            <div class="col-md-3 ftr-grid">
-                <h3>Categories</h3>
-                <ul class="ftr-list">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Racing</a></li>
-                    <li><a href="#">Adventure</a></li>
-                    <li><a href="#">Simulation</a></li>
-                    <li><a href="#">Bike</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 ftr-grid">
-                <h3>Platform</h3>
-                <ul class="ftr-list">
-                    <li><a href="#">Pc</a></li>
-                    <li><a href="#">Ps4</a></li>
-                    <li><a href="#">XBOX 360</a></li>
-                    <li><a href="#">XBOX ONE</a></li>
-                    <li><a href="#">PSP</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 ftr-grid">
-                <h3>Information</h3>
-                <ul class="ftr-list">
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Wish Lists</a></li>
-                    <li><a href="#">Site Map</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
+           
             <div class="clearfix"></div>
         </div>
     </div>

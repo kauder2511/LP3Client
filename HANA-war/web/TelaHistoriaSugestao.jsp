@@ -49,22 +49,36 @@
             </div>
             <!--pages-starts-->
             <p class="pMeuHeroi">Sugestões de história</p>
-        <form action="FrontController" method="POST">
-            <div class="ui container">
-                <div id="abas">
-                    <h3 class="h3A">Introdução</h3>
-                    <div>
-                        
+            <form action="FrontController" method="POST">
+                <div class="ui container">
+                <c:forEach var="hs" items="${pageContext.session.getAttribute('listaHistSugestao')}">
+                    <div id="abas">
+                        <h3 class="h3A">Introdução</h3>
+                        <c:if test="${hs.getRoteiro() == 1}">
+                            <div>
+                                <p>
+                                    ${hs.getHistoria()}
+                                </p>
+                            </div>
+                        </c:if>
+                        <h3 class="h3A">Meio</h3>
+                        <c:if test="${hs.getRoteiro() == 2}">
+                            <div>
+                                <p>
+                                    ${hs.getHistoria()}
+                                </p>
+                            </div>
+                        </c:if>
+                        <h3 class="h3A">Conclusão</h3>
+                        <c:if test="${hs.getRoteiro() == 3}">
+                            <div>
+                                <p>
+                                    ${hs.getHistoria()}
+                                </p>
+                            </div>
+                        </c:if>
                     </div>
-                    <h3 class="h3A">Meio</h3>
-                    <div>
-                        
-                    </div>
-                    <h3 class="h3A">Conclusão</h3>
-                    <div>
-                        
-                    </div>
-                </div>
+                </c:forEach>
                 <br/>
                 <input class="btn btn-danger btn-block" style="width: 50%;margin-left: 25%;margin-bottom: 20px" type="submit" value="Editar"/>
                 <input type="hidden" name="command" value="editarhistoria"/>
